@@ -34,7 +34,7 @@
         }
 
         .logo-container { flex: 1; display: flex; align-items: center; }
-        .logo-img { height: 80px; width: auto; }
+        .logo-img { height: 80px; width: auto; transition: 0.3s; }
 
         .aviso-central {
             flex: 2;
@@ -54,14 +54,16 @@
             color: var(--dark);
             margin-left: 20px;
             font-weight: 600;
+            transition: 0.3s;
             font-size: 1rem;
         }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* --- HERO CON DESLIZAMIENTO (SLIDER) --- */
+        /* --- HERO CON SLIDER DESLIZANTE --- */
         .hero-container {
             position: relative;
             width: 100%;
-            height: 500px; /* Ajusta la altura a tu gusto */
+            height: 550px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -70,46 +72,49 @@
 
         .slider {
             display: flex;
-            width: 300%; /* Porque tenemos 3 imágenes */
+            width: 300%; /* Para 3 imágenes */
             height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1); /* Desplazamiento elegante */
+            transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
         }
 
         .slide {
-            width: 100.333%;
+            width: 33.333%;
             height: 100%;
             background-size: cover;
             background-position: center;
             position: relative;
         }
 
-        /* Capa oscura para que el texto se lea */
+        /* Capa de color sobre las fotos para legibilidad */
         .slide::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 82, 204, 0.4);
+            background: linear-gradient(rgba(0, 82, 204, 0.4), rgba(0, 82, 204, 0.4));
         }
 
         .hero-content {
             position: relative;
             z-index: 10;
             text-align: center;
-            color: white;
-            padding: 0 5%;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 20px;
         }
 
         .hero-content h1 { 
             font-size: 3.5rem; 
             margin-bottom: 20px; 
+            font-weight: 700;
             text-shadow: 3px 3px 10px rgba(0,0,0,0.7); 
         }
 
         .hero-content p { 
             font-size: 1.6rem; 
+            margin-bottom: 30px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
 
@@ -121,28 +126,77 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             text-align: center;
+            border-bottom: 1px solid #eee;
         }
+        .confianza-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .confianza-item h4 { margin: 10px 0; font-size: 1.2rem; }
+        .confianza-item p { font-size: 0.9rem; color: #666; }
 
         /* --- PRODUCTOS --- */
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; padding-bottom: 25px; border: 1px solid #eee;}
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
+
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+
+        .product-card { 
+            background: var(--white); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            text-align: center; 
+            padding-bottom: 25px;
+            transition: 0.3s ease;
+            border: 1px solid #eee;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         .product-card img { width: 100%; height: 230px; object-fit: cover; }
-        
-        .btn-main { background: var(--secondary); color: white; padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; }
+        .product-card h3 { margin: 20px 0 10px; font-size: 1.3rem; }
+        .price { color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px; }
+
+        .btn-main { 
+            background: var(--secondary); 
+            color: var(--white); 
+            padding: 14px 30px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-main:hover { background: #e68a00; transform: scale(1.05); }
 
         .whatsapp-float {
-            position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px;
-            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
-            font-size: 35px; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 1000;
-            display: flex; align-items: center; justify-content: center; text-decoration: none;
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
 
         footer { background: var(--dark); color: var(--white); text-align: center; padding: 60px 5%; }
 
         @media (max-width: 992px) {
             .aviso-central { display: none; }
-            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 2.3rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .hero-container { height: 450px; }
         }
     </style>
 </head>
@@ -178,36 +232,50 @@
 
     <div class="confianza">
         <div class="confianza-item">
-            <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--primary);"></i>
+            <i class="fas fa-shield-alt"></i>
             <h4>Pago Seguro</h4>
-            <p>Tu dinero siempre protegido.</p>
+            <p>Tu dinero y tus datos siempre protegidos.</p>
         </div>
         <div class="confianza-item">
-            <i class="fas fa-box-check" style="font-size: 2.5rem; color: var(--primary);"></i>
+            <i class="fas fa-box-check"></i>
             <h4>Garantía de Entrega</h4>
-            <p>Directo a la puerta de casa.</p>
+            <p>Seguimiento real hasta la puerta de casa.</p>
         </div>
         <div class="confianza-item">
-            <i class="fas fa-headset" style="font-size: 2.5rem; color: var(--primary);"></i>
+            <i class="fas fa-headset"></i>
             <h4>Soporte 24/7</h4>
-            <p>Atención por WhatsApp.</p>
+            <p>Atención inmediata vía WhatsApp.</p>
         </div>
     </div>
 
     <section id="productos">
-        <h2 style="text-align: center; margin-bottom: 40px;">Nuestros Productos Populares</h2>
+        <h2 class="section-title">Nuestros Productos Populares</h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Combo Familiar">
                 <h3>Combo Familiar Súper</h3>
-                <span style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$95.00 USD</span>
+                <span class="price">$95.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" alt="Medicinas">
+                <h3>Kit de Salud Prioritario</h3>
+                <span class="price">$45.00 USD</span>
+                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" alt="Cárnicos">
+                <h3>Pack Cárnico Especial</h3>
+                <span class="price">$110.00 USD</span>
+                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
+            </div>
+        </div>
     </section>
 
     <footer id="contacto">
         <img src="logo.png" alt="Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px;">
+        <h3>Contacto Directo</h3>
+        <p>WhatsApp: +TU_NUMERO_AQUÍ</p>
         <p>&copy; 2026 EnviaDirect - Envíos a Cuba</p>
     </footer>
 
@@ -221,13 +289,14 @@
 
         function slideImages() {
             index++;
-            if (index > 2) { // Tenemos 3 imágenes (0, 1, 2)
+            if (index > 2) { 
                 index = 0;
             }
-            // Movemos el slider un 33.33% a la izquierda cada vez
+            // Desplazamos la tira de imágenes
             slider.style.transform = `translateX(-${index * 33.333}%)`;
         }
 
+        // Cambio automático cada 5 segundos
         setInterval(slideImages, 5000);
     </script>
 </body>
