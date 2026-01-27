@@ -62,14 +62,15 @@
         /* --- HERO SECTION CON CARRUSEL --- */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0, 82, 204, 0.4), rgba(0, 82, 204, 0.4)), 
-                        url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1350');
+            /* Definimos la primera imagen por defecto aquí para que no salga en blanco al cargar */
+            background: linear-gradient(rgba(0, 82, 204, 0.4), rgba(0, 82, 204, 0.4)), url('aereo.png');
             background-size: cover;
             background-position: center;
             color: var(--white);
             padding: 150px 5% 120px;
             text-align: center;
-            transition: background-image 1.2s ease-in-out; /* Transición suave */
+            transition: background-image 1.2s ease-in-out; 
+            min-height: 400px;
         }
 
         .hero h1 { 
@@ -162,7 +163,8 @@
 
         @media (max-width: 992px) {
             .aviso-central { display: none; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -213,19 +215,19 @@
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Combo Familiar">
                 <h3>Combo Familiar Súper</h3>
                 <span class="price">$95.00 USD</span>
-                <a href="https://wa.me/TU_NUMERO?text=Hola,%20me%20interesa%20el%20Combo%20Familiar" class="btn-main">Pedir ahora</a>
+                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" alt="Medicinas">
                 <h3>Kit de Salud Prioritario</h3>
                 <span class="price">$45.00 USD</span>
-                <a href="https://wa.me/TU_NUMERO?text=Hola,%20me%20interesa%20el%20Kit%20Salud" class="btn-main">Pedir ahora</a>
+                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" alt="Cárnicos">
                 <h3>Pack Cárnico Especial</h3>
                 <span class="price">$110.00 USD</span>
-                <a href="https://wa.me/TU_NUMERO?text=Hola,%20me%20interesa%20el%20Pack%20Carnico" class="btn-main">Pedir ahora</a>
+                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
         </div>
     </section>
@@ -243,21 +245,19 @@
 
     <script>
         const hero = document.getElementById('hero-slider');
-const images = [
-    'aereo.png', 
-    'maritimo.png', 
-    'terrestre.png'
-];
+        const images = [
+            'aereo.png', 
+            'maritimo.png', 
+            'terrestre.png'
+        ];
 
         let index = 0;
 
         function changeBg() {
             index = (index + 1) % images.length;
-            // Aplicamos el gradiente + la imagen nueva
             hero.style.backgroundImage = `linear-gradient(rgba(0, 82, 204, 0.4), rgba(0, 82, 204, 0.4)), url('${images[index]}')`;
         }
 
-        // Cambia cada 5 segundos (5000 milisegundos)
         setInterval(changeBg, 5000);
     </script>
 </body>
