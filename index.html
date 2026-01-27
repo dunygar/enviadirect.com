@@ -18,38 +18,66 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--light); color: var(--dark); }
 
-        /* Navegación con LOGO */
+        /* Navegación - LOGO MÁS GRANDE */
         nav {
-            background: white; padding: 0.5rem 5%; display: flex; justify-content: space-between;
-            align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
+            background: white; 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
         }
         
-        .logo-container { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 50px; width: auto; margin-right: 10px; } /* Ajusta el tamaño de tu logo aquí */
-        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none; 
+        }
 
-        .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 600; transition: 0.3s; }
+        /* Hemos aumentado la altura a 80px para que se vea mucho mejor */
+        .logo-img { 
+            height: 80px; 
+            width: auto; 
+            display: block;
+        }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--dark); 
+            margin-left: 25px; 
+            font-weight: 600; 
+            transition: 0.3s; 
+            font-size: 1.1rem;
+        }
+        
         .nav-links a:hover { color: var(--primary); }
 
-        /* Hero Section Actualizada */
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,82,204,0.85), rgba(0,82,204,0.85)), 
                         url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1350');
-            background-size: cover; background-position: center; color: white; padding: 120px 5%; text-align: center;
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+            padding: 100px 5%; 
+            text-align: center;
         }
 
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; }
-        .hero p { font-size: 1.4rem; font-weight: 300; opacity: 0.9; }
+        .hero p { font-size: 1.6rem; font-weight: 300; opacity: 0.9; margin-top: 0; }
 
-        /* Estilos de productos y botones (se mantienen) */
+        /* Estructura de productos */
         section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 20px; }
         .product-card img { width: 100%; height: 200px; object-fit: cover; }
-        .btn-main { background: var(--secondary); color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; margin-top: 15px; }
+        .btn-main { background: var(--secondary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; margin-top: 15px; border: none; }
         
         #productos-extras { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
-        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 10px 25px; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 30px; }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 30px; }
 
         footer { background: var(--dark); color: white; text-align: center; padding: 40px 5%; margin-top: 40px; }
     </style>
@@ -59,7 +87,6 @@
     <nav>
         <a href="#" class="logo-container">
             <img src="logo.png" alt="EnviaDirect Logo" class="logo-img">
-            <span class="logo-text">EnviaDirect</span>
         </a>
         <div class="nav-links">
             <a href="#">Inicio</a>
@@ -75,35 +102,20 @@
     </header>
 
     <section id="productos">
-        <h2 style="text-align:center;">Nuestros Más Populares</h2>
+        <h2 style="text-align:center; margin-bottom: 40px;">Productos más Populares</h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500" alt="Combo 1">
                 <h3>Combo Familiar Súper</h3>
-                <span style="color:var(--primary); font-weight:700;">$95.00 USD</span><br>
+                <span style="color:var(--primary); font-weight:700; font-size: 1.2rem;">$95.00 USD</span><br>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
             </div>
             </div>
-        </section>
+    </section>
 
     <footer id="contacto">
-        <h2>Contacto Directo</h2>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp: +123 456 7890</p>
-        <p>&copy; 2026 EnviaDirect - Envíos Directos y Seguros</p>
+        <p>&copy; 2026 EnviaDirect - Envíos Directos y Seguros a Cuba</p>
     </footer>
 
-    <script>
-        function mostrarMas() {
-            var extras = document.getElementById("productos-extras");
-            var boton = document.getElementById("botonVerMas");
-            if (extras.style.display === "none" || extras.style.display === "") {
-                extras.style.display = "grid";
-                boton.innerHTML = "Ver menos";
-            } else {
-                extras.style.display = "none";
-                boton.innerHTML = "Ver Catálogo Completo";
-            }
-        }
-    </script>
 </body>
 </html>
