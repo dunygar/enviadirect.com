@@ -3,67 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web | GitHub Pages</title>
+    <title>EnviaDirect | Envíos a Cuba rápidos y seguros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    
     <style>
-        /* Aquí le damos color y forma a la web */
+        :root {
+            --primary: #0052cc; /* Azul confianza */
+            --secondary: #ff9900; /* Naranja acción */
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navegación */
+        nav {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Hero Section (Cabecera principal) */
+        .hero {
+            background: linear-gradient(rgba(0,82,204,0.8), rgba(0,82,204,0.8)), 
+                        url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 5%;
             text-align: center;
         }
-        header {
-            background: #24292e; /* Color oscuro estilo GitHub */
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .btn-main {
+            background: var(--secondary);
             color: white;
-            padding: 2rem 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding-bottom: 2rem;
-        }
-        h1 { margin-top: 0; }
-        .boton {
-            display: inline-block;
-            background: #2ea44f;
-            color: white;
-            padding: 10px 20px;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
         }
-        .boton:hover { background: #2c974b; }
+
+        .btn-main:hover { transform: scale(1.05); background: #e68a00; }
+
+        /* Servicios */
+        .services {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>¡Bienvenido a mi espacio digital!</h1>
-        <p>Un sitio web creado desde cero con GitHub</p>
+    <nav>
+        <div class="logo">EnviaDirect</div>
+        <div>
+            <a href="#contacto" style="text-decoration:none; color:var(--primary); font-weight:600;">Contacto</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Envíos a Cuba sin complicaciones</h1>
+        <p>Entregamos tus paquetes, comida y medicinas en la puerta de tus familiares con la rapidez que ellos merecen.</p>
+        <a href="https://wa.me/TU_NUMERO" class="btn-main">Iniciar mi envío ahora</a>
     </header>
 
-    <div class="container">
-        <h2>Sobre mí</h2>
-        <p>Hola, estoy aprendiendo a usar GitHub Pages. Este es un ejemplo de cómo se puede crear una página elegante sin ser un experto en programación.</p>
-        
-        <hr>
+    <section class="services">
+        <div class="card">
+            <i class="fas fa-box-open"></i>
+            <h3>Combos de Comida</h3>
+            <p>Variedad de cárnicos, granos y aseo con entrega rápida.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-pills"></i>
+            <h3>Medicinas</h3>
+            <p>Envío prioritario de insumos médicos y farmacia.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shippping-fast"></i>
+            <h3>Paquetería 1.5kg</h3>
+            <p>La forma más ágil de enviar pequeños detalles.</p>
+        </div>
+    </section>
 
-        <h2>Mis Proyectos</h2>
-        <p>Pronto verás aquí una lista de las cosas en las que estoy trabajando.</p>
-
-       <h3>Encuéntrame en:</h3>
-<p>
-    <a href="https://instagram.com/TU_USUARIO">Instagram</a> | 
-    <a href="https://twitter.com/TU_USUARIO">Twitter</a>
-</p>
-    </div>
+    <footer id="contacto">
+        <p>&copy; 2026 EnviaDirect - Conectando Familias.</p>
+        <p>WhatsApp: +123 456 7890 | Correo: info@enviadirect.com</p>
+    </footer>
 
 </body>
 </html>
