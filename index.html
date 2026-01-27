@@ -34,7 +34,7 @@
         }
 
         .logo-container { flex: 1; display: flex; align-items: center; }
-        .logo-img { height: 80px; width: auto; transition: 0.3s; }
+        .logo-img { height: 80px; width: auto; }
 
         .aviso-central {
             flex: 2;
@@ -54,38 +54,63 @@
             color: var(--dark);
             margin-left: 20px;
             font-weight: 600;
-            transition: 0.3s;
             font-size: 1rem;
         }
-        .nav-links a:hover { color: var(--primary); }
 
-        /* --- HERO SECTION CON CARRUSEL --- */
-        .hero {
+        /* --- HERO CON DESLIZAMIENTO (SLIDER) --- */
+        .hero-container {
             position: relative;
-            /* Definimos la primera imagen por defecto aquí para que no salga en blanco al cargar */
-            background: linear-gradient(rgba(0, 82, 204, 0.4), rgba(0, 82, 204, 0.4)), url('aereo.png');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 150px 5% 120px;
-            text-align: center;
-            transition: background-image 1.2s ease-in-out; 
-            min-height: 400px;
+            width: 100%;
+            height: 500px; /* Ajusta la altura a tu gusto */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .hero h1 { 
+        .slider {
+            display: flex;
+            width: 300%; /* Porque tenemos 3 imágenes */
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1); /* Desplazamiento elegante */
+        }
+
+        .slide {
+            width: 100.333%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Capa oscura para que el texto se lea */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 82, 204, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
+
+        .hero-content h1 { 
             font-size: 3.5rem; 
             margin-bottom: 20px; 
-            font-weight: 700;
             text-shadow: 3px 3px 10px rgba(0,0,0,0.7); 
         }
 
-        .hero p { 
+        .hero-content p { 
             font-size: 1.6rem; 
-            font-weight: 400; 
-            margin-top: 0; 
             text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-            opacity: 0.9;
         }
 
         /* --- SECCIÓN CONFIANZA --- */
@@ -96,75 +121,28 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             text-align: center;
-            border-bottom: 1px solid #eee;
         }
-        .confianza-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-        .confianza-item h4 { margin: 10px 0; font-size: 1.2rem; }
-        .confianza-item p { font-size: 0.9rem; color: #666; }
 
         /* --- PRODUCTOS --- */
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
-
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-        }
-
-        .product-card { 
-            background: var(--white); 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-            text-align: center; 
-            padding-bottom: 25px;
-            transition: 0.3s ease;
-            border: 1px solid #eee;
-        }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; padding-bottom: 25px; border: 1px solid #eee;}
         .product-card img { width: 100%; height: 230px; object-fit: cover; }
-        .product-card h3 { margin: 20px 0 10px; font-size: 1.3rem; }
-        .price { color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px; }
-
-        .btn-main { 
-            background: var(--secondary); 
-            color: var(--white); 
-            padding: 14px 30px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: 600; 
-            display: inline-block;
-            transition: 0.3s;
-            border: none;
-        }
-        .btn-main:hover { background: #e68a00; transform: scale(1.05); }
+        
+        .btn-main { background: var(--secondary); color: white; padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; }
 
         .whatsapp-float {
-            position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
+            position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
+            font-size: 35px; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 1000;
+            display: flex; align-items: center; justify-content: center; text-decoration: none;
         }
 
         footer { background: var(--dark); color: var(--white); text-align: center; padding: 60px 5%; }
 
         @media (max-width: 992px) {
             .aviso-central { display: none; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.2rem; }
+            .hero-content h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -184,58 +162,52 @@
         </div>
     </nav>
 
-    <header class="hero" id="hero-slider">
-        <h1>Conectamos a tu familia con la rapidez que ellos merecen</h1>
-        <p>Envíos seguros y garantizados a toda Cuba con EnviaDirect</p>
-        <a href="#productos" class="btn-main">Explorar Catálogo</a>
-    </header>
+    <div class="hero-container">
+        <div class="slider" id="slider">
+            <div class="slide" style="background-image: url('aereo.png');"></div>
+            <div class="slide" style="background-image: url('maritimo.png');"></div>
+            <div class="slide" style="background-image: url('terrestre.png');"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Conectamos a tu familia con la rapidez que ellos merecen</h1>
+            <p>Envíos seguros y garantizados a toda Cuba con EnviaDirect</p>
+            <a href="#productos" class="btn-main">Explorar Catálogo</a>
+        </div>
+    </div>
 
     <div class="confianza">
         <div class="confianza-item">
-            <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--primary);"></i>
             <h4>Pago Seguro</h4>
-            <p>Tu dinero y tus datos siempre protegidos.</p>
+            <p>Tu dinero siempre protegido.</p>
         </div>
         <div class="confianza-item">
-            <i class="fas fa-box-check"></i>
+            <i class="fas fa-box-check" style="font-size: 2.5rem; color: var(--primary);"></i>
             <h4>Garantía de Entrega</h4>
-            <p>Seguimiento real hasta la puerta de casa.</p>
+            <p>Directo a la puerta de casa.</p>
         </div>
         <div class="confianza-item">
-            <i class="fas fa-headset"></i>
+            <i class="fas fa-headset" style="font-size: 2.5rem; color: var(--primary);"></i>
             <h4>Soporte 24/7</h4>
-            <p>Atención inmediata vía WhatsApp.</p>
+            <p>Atención por WhatsApp.</p>
         </div>
     </div>
 
     <section id="productos">
-        <h2 class="section-title">Nuestros Productos Populares</h2>
+        <h2 style="text-align: center; margin-bottom: 40px;">Nuestros Productos Populares</h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Combo Familiar">
                 <h3>Combo Familiar Súper</h3>
-                <span class="price">$95.00 USD</span>
+                <span style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$95.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" alt="Medicinas">
-                <h3>Kit de Salud Prioritario</h3>
-                <span class="price">$45.00 USD</span>
-                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" alt="Cárnicos">
-                <h3>Pack Cárnico Especial</h3>
-                <span class="price">$110.00 USD</span>
-                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
-            </div>
-        </div>
     </section>
 
     <footer id="contacto">
         <img src="logo.png" alt="Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px;">
-        <h3>Contacto Directo</h3>
-        <p>WhatsApp: +TU_NUMERO_AQUÍ</p>
         <p>&copy; 2026 EnviaDirect - Envíos a Cuba</p>
     </footer>
 
@@ -244,21 +216,19 @@
     </a>
 
     <script>
-        const hero = document.getElementById('hero-slider');
-        const images = [
-            'aereo.png', 
-            'maritimo.png', 
-            'terrestre.png'
-        ];
-
+        const slider = document.getElementById('slider');
         let index = 0;
 
-        function changeBg() {
-            index = (index + 1) % images.length;
-            hero.style.backgroundImage = `linear-gradient(rgba(0, 82, 204, 0.4), rgba(0, 82, 204, 0.4)), url('${images[index]}')`;
+        function slideImages() {
+            index++;
+            if (index > 2) { // Tenemos 3 imágenes (0, 1, 2)
+                index = 0;
+            }
+            // Movemos el slider un 33.33% a la izquierda cada vez
+            slider.style.transform = `translateX(-${index * 33.333}%)`;
         }
 
-        setInterval(changeBg, 5000);
+        setInterval(slideImages, 5000);
     </script>
 </body>
 </html>
