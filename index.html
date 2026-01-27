@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnviaDirect | Envíos Directos y Seguros</title>
+    <title>EnviaDirect | Envíos Directos y Seguros a Cuba</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
@@ -13,83 +14,163 @@
             --secondary: #ff9900;
             --dark: #1a1a1a;
             --light: #f4f7f6;
+            --white: #ffffff;
         }
 
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--light); color: var(--dark); }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--light); color: var(--dark); overflow-x: hidden; }
 
-        /* Navegación - LOGO MÁS GRANDE */
+        /* --- NAVEGACIÓN --- */
         nav {
-            background: white; 
-            padding: 1rem 5%; 
-            display: flex; 
+            background: var(--white);
+            padding: 0.5rem 5%;
+            display: flex;
             justify-content: space-between;
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-            position: sticky; 
-            top: 0; 
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
-        
-        .logo-container { 
-            display: flex; 
-            align-items: center; 
-            text-decoration: none; 
+
+        .logo-container { flex: 1; display: flex; align-items: center; }
+        .logo-img { height: 80px; width: auto; transition: 0.3s; }
+
+        /* AVISO CENTRADO (ESTILO PÍLDORA) */
+        .aviso-central {
+            flex: 2;
+            text-align: center;
+            background: #eef4ff;
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #d0e1ff;
         }
 
-        /* Hemos aumentado la altura a 80px para que se vea mucho mejor */
-        .logo-img { 
-            height: 80px; 
-            width: auto; 
-            display: block;
+        .nav-links { flex: 1; display: flex; justify-content: flex-end; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 1rem;
         }
-
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--dark); 
-            margin-left: 25px; 
-            font-weight: 600; 
-            transition: 0.3s; 
-            font-size: 1.1rem;
-        }
-        
         .nav-links a:hover { color: var(--primary); }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(0,82,204,0.85), rgba(0,82,204,0.85)), 
+            background: linear-gradient(rgba(0,82,204,0.8), rgba(0,82,204,0.8)), 
                         url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1350');
-            background-size: cover; 
-            background-position: center; 
-            color: white; 
-            padding: 100px 5%; 
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 5% 80px;
             text-align: center;
         }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 700; }
+        .hero p { font-size: 1.5rem; font-weight: 300; margin-top: 0; opacity: 0.9; }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; }
-        .hero p { font-size: 1.6rem; font-weight: 300; opacity: 0.9; margin-top: 0; }
+        /* --- SECCIÓN CONFIANZA --- */
+        .confianza {
+            background: var(--white);
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .confianza-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .confianza-item h4 { margin: 10px 0; font-size: 1.2rem; }
+        .confianza-item p { font-size: 0.9rem; color: #666; }
 
-        /* Estructura de productos */
-        section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 20px; }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; }
-        .btn-main { background: var(--secondary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; margin-top: 15px; border: none; }
-        
-        #productos-extras { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
-        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 30px; }
+        /* --- PRODUCTOS --- */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
 
-        footer { background: var(--dark); color: white; text-align: center; padding: 40px 5%; margin-top: 40px; }
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+
+        .product-card { 
+            background: var(--white); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            text-align: center; 
+            padding-bottom: 25px;
+            transition: 0.3s ease;
+            border: 1px solid #eee;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 230px; object-fit: cover; }
+        .product-card h3 { margin: 20px 0 10px; font-size: 1.3rem; }
+        .price { color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px; }
+
+        /* --- BOTONES --- */
+        .btn-main { 
+            background: var(--secondary); 
+            color: var(--white); 
+            padding: 14px 30px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-main:hover { background: #e68a00; transform: scale(1.05); }
+
+        /* --- WHATSAPP FLOTANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: var(--white); text-align: center; padding: 60px 5%; }
+        footer p { opacity: 0.7; font-size: 0.9rem; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .aviso-central { display: none; } /* Ocultar aviso en tablet/móvil para evitar amontonamiento */
+            .hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
-<div style="background: var(--dark); color: white; text-align: center; padding: 8px; font-size: 0.9rem;">
-    🚚 <strong>Aviso:</strong> Envíos a toda Cuba con entrega garantizada.
-</div>
+
     <nav>
         <a href="#" class="logo-container">
             <img src="logo.png" alt="EnviaDirect Logo" class="logo-img">
         </a>
+
+        <div class="aviso-central">
+            <i class="fas fa-truck-fast"></i> Envíos a toda Cuba con entrega garantizada.
+        </div>
+
         <div class="nav-links">
             <a href="#">Inicio</a>
             <a href="#productos">Productos</a>
@@ -100,44 +181,74 @@
     <header class="hero">
         <h1>Envíos Directos y Seguros</h1>
         <p>con EnviaDirect</p>
-        <a href="#productos" class="btn-main">Ver Catálogo</a>
+        <a href="#productos" class="btn-main">Explorar Catálogo</a>
     </header>
-<section style="background: white; padding: 40px 5%; text-align: center;">
-    <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-        <div>
-            <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--primary);"></i>
+
+    <div class="confianza">
+        <div class="confianza-item">
+            <i class="fas fa-shield-alt"></i>
             <h4>Pago Seguro</h4>
-            <p>Transacciones protegidas y garantizadas.</p>
+            <p>Tu dinero y tus datos siempre protegidos.</p>
         </div>
-        <div>
-            <i class="fas fa-truck" style="font-size: 2rem; color: var(--primary);"></i>
-            <h4>Entrega a Domicilio</h4>
-            <p>Llegamos a todas las provincias de Cuba.</p>
+        <div class="confianza-item">
+            <i class="fas fa-box-check"></i>
+            <h4>Garantía de Entrega</h4>
+            <p>Seguimiento real hasta la puerta de casa.</p>
         </div>
-        <div>
-            <i class="fas fa-user-check" style="font-size: 2rem; color: var(--primary);"></i>
-            <h4>Atención 24/7</h4>
-            <p>Soporte personalizado por WhatsApp.</p>
+        <div class="confianza-item">
+            <i class="fas fa-headset"></i>
+            <h4>Soporte 24/7</h4>
+            <p>Atención inmediata vía WhatsApp.</p>
         </div>
     </div>
-</section>
+
     <section id="productos">
-        <h2 style="text-align:center; margin-bottom: 40px;">Productos más Populares</h2>
+        <h2 class="section-title">Nuestros Productos Populares</h2>
+        
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500" alt="Combo 1">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Combo Familiar">
                 <h3>Combo Familiar Súper</h3>
-                <span style="color:var(--primary); font-weight:700; font-size: 1.2rem;">$95.00 USD</span><br>
-                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
+                <span class="price">$95.00 USD</span>
+                <a href="https://wa.me/TU_NUMERO?text=Hola,%20me%20interesa%20el%20Combo%20Familiar%20Súper" class="btn-main">
+                    <i class="fab fa-whatsapp"></i> Pedir ahora
+                </a>
             </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" alt="Medicinas">
+                <h3>Kit de Salud Prioritario</h3>
+                <span class="price">$45.00 USD</span>
+                <a href="https://wa.me/TU_NUMERO?text=Hola,%20me%20interesa%20el%20Kit%20de%20Salud" class="btn-main">
+                    <i class="fab fa-whatsapp"></i> Pedir ahora
+                </a>
             </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" alt="Cárnicos">
+                <h3>Pack Cárnico Especial</h3>
+                <span class="price">$110.00 USD</span>
+                <a href="https://wa.me/TU_NUMERO?text=Hola,%20me%20interesa%20el%20Pack%20Cárnico" class="btn-main">
+                    <i class="fab fa-whatsapp"></i> Pedir ahora
+                </a>
+            </div>
+        </div>
     </section>
 
     <footer id="contacto">
+        <div style="margin-bottom: 30px;">
+            <img src="logo.png" alt="Logo" style="height: 60px; filter: brightness(0) invert(1);">
+        </div>
+        <h3>Contacto Directo</h3>
+        <p>WhatsApp: +TU_NUMERO_AQUÍ</p>
+        <p>Email: contacto@enviadirect.com</p>
+        <hr style="width: 50px; border: 1px solid var(--secondary); margin: 20px auto;">
         <p>&copy; 2026 EnviaDirect - Envíos Directos y Seguros a Cuba</p>
     </footer>
-<a href="https://wa.me/TUNUMERO" style="position:fixed; width:60px; height:60px; bottom:40px; right:40px; background-color:#25d366; color:#FFF; border-radius:50px; text-align:center; font-size:30px; box-shadow: 2px 2px 3px #999; z-index:1000; display: flex; align-items: center; justify-content: center; text-decoration: none;">
-    <i class="fab fa-whatsapp"></i>
-</a>
+
+    <a href="https://wa.me/TU_NUMERO" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
 </body>
 </html>
