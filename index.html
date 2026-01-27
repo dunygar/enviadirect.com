@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnviaDirect | Envíos a Cuba</title>
+    <title>EnviaDirect | Envíos Directos y Seguros</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     
@@ -18,43 +18,38 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--light); color: var(--dark); }
 
-        /* Navegación */
+        /* Navegación con LOGO */
         nav {
-            background: white; padding: 1rem 5%; display: flex; justify-content: space-between;
+            background: white; padding: 0.5rem 5%; display: flex; justify-content: space-between;
             align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 600; }
+        
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 50px; width: auto; margin-right: 10px; } /* Ajusta el tamaño de tu logo aquí */
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
 
-        /* Hero */
+        .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero Section Actualizada */
         .hero {
-            background: linear-gradient(rgba(0,82,204,0.8), rgba(0,82,204,0.8)), 
-                        url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center; color: white; padding: 100px 5%; text-align: center;
+            background: linear-gradient(rgba(0,82,204,0.85), rgba(0,82,204,0.85)), 
+                        url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1350');
+            background-size: cover; background-position: center; color: white; padding: 120px 5%; text-align: center;
         }
 
-        /* Contenedor de Productos */
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; }
+        .hero p { font-size: 1.4rem; font-weight: 300; opacity: 0.9; }
+
+        /* Estilos de productos y botones (se mantienen) */
         section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-        .product-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;
-        }
-
-        .product-card {
-            background: white; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 20px;
-        }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 20px; }
         .product-card img { width: 100%; height: 200px; object-fit: cover; }
-        .price { color: var(--primary); font-weight: 700; font-size: 1.3rem; display: block; margin: 10px 0; }
-
-        /* Botones */
-        .btn-main { background: var(--secondary); color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; border: none; cursor: pointer; }
+        .btn-main { background: var(--secondary); color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; margin-top: 15px; }
+        
+        #productos-extras { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 10px 25px; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 30px; }
-
-        /* EL TRUCO: Productos ocultos */
-        #productos-extras {
-            display: none; /* Esto lo oculta al principio */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px;
-        }
 
         footer { background: var(--dark); color: white; text-align: center; padding: 40px 5%; margin-top: 40px; }
     </style>
@@ -62,7 +57,10 @@
 <body>
 
     <nav>
-        <a href="#" class="logo">EnviaDirect</a>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="EnviaDirect Logo" class="logo-img">
+            <span class="logo-text">EnviaDirect</span>
+        </a>
         <div class="nav-links">
             <a href="#">Inicio</a>
             <a href="#productos">Productos</a>
@@ -71,72 +69,33 @@
     </nav>
 
     <header class="hero">
-        <h1>Envíos Directos a Cuba</h1>
-        <p>Los mejores combos de comida y aseo para tu familia.</p>
-        <a href="#productos" class="btn-main">Ver Productos</a>
+        <h1>Envíos Directos y Seguros</h1>
+        <p>con EnviaDirect</p>
+        <a href="#productos" class="btn-main">Ver Catálogo</a>
     </header>
 
     <section id="productos">
         <h2 style="text-align:center;">Nuestros Más Populares</h2>
-        
         <div class="product-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500" alt="Combo 1">
                 <h3>Combo Familiar Súper</h3>
-                <span class="price">$95.00 USD</span>
+                <span style="color:var(--primary); font-weight:700;">$95.00 USD</span><br>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=500" alt="Combo 2">
-                <h3>Combo Cárnico VIP</h3>
-                <span class="price">$120.00 USD</span>
-                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500" alt="Medicinas">
-                <h3>Kit Salud Cuba</h3>
-                <span class="price">$40.00 USD</span>
-                <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
-            </div>
-        </div>
-
-        <div id="productos-extras">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500" alt="Extra 1">
-                <h3>Pack Aseo Diario</h3>
-                <span class="price">$25.00 USD</span>
-                <a href="#" class="btn-main">Pedir</a>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1590779033100-9f60705a2f3b?w=500" alt="Extra 2">
-                <h3>Bolsa de Granos</h3>
-                <span class="price">$15.00 USD</span>
-                <a href="#" class="btn-main">Pedir</a>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500" alt="Extra 3">
-                <h3>Combo Higiene Total</h3>
-                <span class="price">$55.00 USD</span>
-                <a href="#" class="btn-main">Pedir</a>
-            </div>
-        </div>
-
-        <div style="text-align: center;">
-            <button class="btn-outline" onclick="mostrarMas()" id="botonVerMas">Ver Catálogo Completo</button>
-        </div>
-    </section>
+        </section>
 
     <footer id="contacto">
-        <h2>Contacto</h2>
-        <p>WhatsApp: +123 456 7890</p>
-        <p>&copy; 2026 EnviaDirect</p>
+        <h2>Contacto Directo</h2>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: +123 456 7890</p>
+        <p>&copy; 2026 EnviaDirect - Envíos Directos y Seguros</p>
     </footer>
 
     <script>
         function mostrarMas() {
             var extras = document.getElementById("productos-extras");
             var boton = document.getElementById("botonVerMas");
-            
             if (extras.style.display === "none" || extras.style.display === "") {
                 extras.style.display = "grid";
                 boton.innerHTML = "Ver menos";
@@ -146,6 +105,5 @@
             }
         }
     </script>
-
 </body>
 </html>
