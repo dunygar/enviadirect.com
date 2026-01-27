@@ -9,11 +9,13 @@
     
     <style>
         :root {
-            --primary: #0052cc; /* Azul confianza */
-            --secondary: #ff9900; /* Naranja acción */
+            --primary: #0052cc;
+            --secondary: #ff9900;
             --dark: #1a1a1a;
             --light: #f8f9fa;
         }
+
+        html { scroll-behavior: smooth; } /* Hace que el salto entre secciones sea suave */
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -23,7 +25,7 @@
             line-height: 1.6;
         }
 
-        /* Navegación */
+        /* Navegación Mejorada */
         nav {
             background: white;
             padding: 1rem 5%;
@@ -40,21 +42,33 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
+            text-decoration: none;
         }
 
-        /* Hero Section (Cabecera principal) */
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Secciones */
+        section { padding: 80px 5%; }
+
         .hero {
-            background: linear-gradient(rgba(0,82,204,0.8), rgba(0,82,204,0.8)), 
-                        url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,82,204,0.85), rgba(0,82,204,0.85)), 
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 100px 5%;
+            padding: 120px 5%;
             text-align: center;
         }
 
         .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 
         .btn-main {
             background: var(--secondary);
@@ -63,78 +77,94 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: 0.3s;
+            display: inline-block;
+            margin-top: 20px;
         }
 
-        .btn-main:hover { transform: scale(1.05); background: #e68a00; }
-
-        /* Servicios */
-        .services {
-            padding: 80px 5%;
+        /* Grid de Productos */
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .card {
+        .product-card {
             background: white;
-            padding: 30px;
             border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            padding-bottom: 20px;
         }
 
-        .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 { margin: 15px 0 5px; }
+        .product-card .price { color: var(--primary); font-weight: 700; font-size: 1.2rem; }
 
         footer {
             background: var(--dark);
             color: white;
             text-align: center;
-            padding: 40px 0;
-            margin-top: 50px;
+            padding: 50px 5%;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">EnviaDirect</div>
-        <div>
-            <a href="#contacto" style="text-decoration:none; color:var(--primary); font-weight:600;">Contacto</a>
+        <a href="#" class="logo">EnviaDirect</a>
+        <div class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#contacto">Contacto</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Envíos a Cuba sin complicaciones</h1>
-        <p>Entregamos tus paquetes, comida y medicinas en la puerta de tus familiares con la rapidez que ellos merecen.</p>
-        <a href="https://wa.me/TU_NUMERO" class="btn-main">Iniciar mi envío ahora</a>
+        <h1>Tu puente directo con Cuba</h1>
+        <p>Envíos rápidos, seguros y garantizados hasta la puerta de casa.</p>
+        <a href="#productos" class="btn-main">Ver Catálogo</a>
     </header>
 
-    <section class="services">
-        <div class="card">
-            <i class="fas fa-box-open"></i>
-            <h3>Combos de Comida</h3>
-            <p>Variedad de cárnicos, granos y aseo con entrega rápida.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-pills"></i>
-            <h3>Medicinas</h3>
-            <p>Envío prioritario de insumos médicos y farmacia.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-shippping-fast"></i>
-            <h3>Paquetería 1.5kg</h3>
-            <p>La forma más ágil de enviar pequeños detalles.</p>
+    <section id="productos">
+        <h2 style="text-align:center; margin-bottom: 40px;">Nuestros Productos Populares</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=500&q=60" alt="Combo Alimenticio">
+                <h3>Combo Familiar Pro</h3>
+                <p>Arroz, frijoles, aceite y cárnicos.</p>
+                <p class="price">$85.00 USD</p>
+                <a href="https://wa.me/1234567890" class="btn-main" style="padding: 8px 20px; font-size: 0.9rem;">Pedir</a>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=60" alt="Medicinas">
+                <h3>Kit de Medicinas</h3>
+                <p>Analgésicos y vitaminas esenciales.</p>
+                <p class="price">$45.00 USD</p>
+                <a href="https://wa.me/1234567890" class="btn-main" style="padding: 8px 20px; font-size: 0.9rem;">Pedir</a>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1580913209249-14a5b4862a90?auto=format&fit=crop&w=500&q=60" alt="Aseo">
+                <h3>Pack de Aseo</h3>
+                <p>Jabón, detergente y desodorante.</p>
+                <p class="price">$30.00 USD</p>
+                <a href="https://wa.me/1234567890" class="btn-main" style="padding: 8px 20px; font-size: 0.9rem;">Pedir</a>
+            </div>
         </div>
     </section>
 
     <footer id="contacto">
-        <p>&copy; 2026 EnviaDirect - Conectando Familias.</p>
-        <p>WhatsApp: +123 456 7890 | Correo: info@enviadirect.com</p>
+        <h2>Contacto</h2>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: +123 456 7890</p>
+        <p><i class="far fa-envelope"></i> Email: info@enviadirect.com</p>
+        <p>&copy; 2026 EnviaDirect - Expertos en envíos a Cuba.</p>
     </footer>
 
 </body>
