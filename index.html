@@ -31,7 +31,7 @@
         /* --- NAVEGACIÓN --- */
         nav {
             background: #121416; 
-            padding: 0.8rem 5%;
+            padding: 0.6rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,34 +43,35 @@
         }
 
         .logo-container { flex: 1; display: flex; align-items: center; min-width: 150px; }
-        .logo-img { height: 110px; width: auto; filter: brightness(0) invert(1); transition: 0.3s; }
+        .logo-img { height: 100px; width: auto; filter: brightness(0) invert(1); transition: 0.3s; }
 
         .aviso-central {
             flex: 1.2;
             text-align: center;
             background: rgba(0, 82, 204, 0.15);
             color: #8db5ff;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             border: 1px solid rgba(208, 225, 255, 0.1);
             margin: 0 10px;
         }
 
-        .nav-links { flex: 2.5; display: flex; justify-content: flex-end; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .nav-links { flex: 2.5; display: flex; justify-content: flex-end; align-items: center; gap: 8px; flex-wrap: wrap; }
         
+        /* BOTONES MÁS PEQUEÑOS */
         .nav-links a {
             text-decoration: none;
             color: var(--white) !important;
-            padding: 8px 15px;
-            border-radius: 5px;
+            padding: 6px 12px;
+            border-radius: 4px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .btn-inicio { background: #3a3e44; }
@@ -126,53 +127,59 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .confianza-card:hover {
-            transform: translateY(-10px);
-            background: #363b41;
-            border-color: var(--primary);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        }
+        .confianza-card:hover { transform: translateY(-10px); background: #363b41; border-color: var(--primary); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
 
         .icon-box {
-            width: 80px; height: 80px;
+            width: 70px; height: 70px;
             background: rgba(0, 82, 204, 0.1);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 25px; transition: 0.3s;
+            margin: 0 auto 20px; transition: 0.3s;
         }
 
         .confianza-card:hover .icon-box { background: var(--primary); transform: rotateY(360deg); }
-        .icon-box i { font-size: 32px; color: var(--primary); transition: 0.3s; }
+        .icon-box i { font-size: 28px; color: var(--primary); transition: 0.3s; }
         .confianza-card:hover .icon-box i { color: var(--white); }
 
-        .confianza-card h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--white); font-weight: 600; }
-        .confianza-card p { color: #b9bbbe; font-size: 0.95rem; line-height: 1.6; }
+        .confianza-card h4 { font-size: 1.3rem; margin-bottom: 15px; color: var(--white); font-weight: 600; }
+        .confianza-card p { color: #b9bbbe; font-size: 0.9rem; line-height: 1.5; }
 
         /* --- PRODUCTOS --- */
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; text-align: center; padding-bottom: 25px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.03); }
-        .product-card:hover { transform: scale(1.02); }
+        .product-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; text-align: center; padding-bottom: 20px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.03); }
         .product-card img { width: 100%; height: 220px; object-fit: cover; }
-        .product-card h3 { color: var(--white); margin: 20px 0; }
+        .product-card h3 { color: var(--white); margin: 15px 0; font-size: 1.1rem; }
 
-        .btn-main { background: var(--secondary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; }
+        /* BOTONES DE PRODUCTO MÁS PEQUEÑOS */
+        .btn-main { 
+            background: var(--secondary); 
+            color: white; 
+            padding: 10px 22px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 0.85rem;
+            transition: 0.3s; 
+            border: none;
+            cursor: pointer;
+        }
         .btn-main:hover { background: #e68a00; box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3); }
 
         .whatsapp-float {
-            position: fixed; width: 60px; height: 60px; bottom: 25px; right: 25px;
+            position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px;
             background-color: var(--success); color: #FFF; border-radius: 50%; text-align: center;
-            font-size: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 1000;
+            font-size: 28px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); z-index: 1000;
             display: flex; align-items: center; justify-content: center; text-decoration: none;
         }
 
-        footer { background: #121416; color: #72767d; text-align: center; padding: 50px 5%; }
+        footer { background: #121416; color: #72767d; text-align: center; padding: 40px 5%; font-size: 0.85rem; }
 
         @media (max-width: 768px) {
-            .logo-img { height: 80px; }
+            .logo-img { height: 70px; }
             .aviso-central { display: none; }
             .hero-content h1 { font-size: 1.8rem; }
-            .nav-links a { width: 45%; justify-content: center; }
+            .nav-links a { width: 45%; justify-content: center; padding: 8px 5px; }
         }
     </style>
 </head>
@@ -210,7 +217,7 @@
         <div class="confianza-card">
             <div class="icon-box"><i class="fas fa-shield-check"></i></div>
             <h4>Pago Seguro</h4>
-            <p>Transacciones cifradas y protegidas. Aceptamos múltiples métodos de pago con total transparencia.</p>
+            <p>Aceptamos múltiples métodos de pago con total transparencia para tu tranquilidad.</p>
         </div>
         <div class="confianza-card">
             <div class="icon-box"><i class="fas fa-shipping-fast"></i></div>
@@ -225,31 +232,31 @@
     </div>
 
     <section id="productos">
-        <h2 style="text-align: center; margin-bottom: 50px; color: var(--white); font-size: 2.2rem;">Productos Populares</h2>
+        <h2 style="text-align: center; margin-bottom: 50px; color: var(--white); font-size: 2rem;">Productos Populares</h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Combo Familiar">
                 <h3>Combo Familiar Súper</h3>
-                <span style="color: var(--secondary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 20px;">$95.00 USD</span>
+                <span style="color: var(--secondary); font-weight: 700; font-size: 1.4rem; display: block; margin-bottom: 15px;">$95.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
             </div>
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" alt="Medicinas">
                 <h3>Kit de Salud Prioritario</h3>
-                <span style="color: var(--secondary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 20px;">$45.00 USD</span>
+                <span style="color: var(--secondary); font-weight: 700; font-size: 1.4rem; display: block; margin-bottom: 15px;">$45.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
             </div>
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" alt="Cárnicos">
                 <h3>Pack Cárnico Especial</h3>
-                <span style="color: var(--secondary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 20px;">$110.00 USD</span>
+                <span style="color: var(--secondary); font-weight: 700; font-size: 1.4rem; display: block; margin-bottom: 15px;">$110.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir por WhatsApp</a>
             </div>
         </div>
     </section>
 
     <footer id="contacto">
-        <img src="logo.png" alt="Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; opacity: 0.6;">
+        <img src="logo.png" alt="Logo" style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 15px; opacity: 0.6;">
         <p>Expertos en logística directa a Cuba.</p>
         <p>&copy; 2026 EnviaDirect - Todos los derechos reservados.</p>
     </footer>
