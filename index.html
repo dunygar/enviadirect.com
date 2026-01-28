@@ -17,6 +17,7 @@
             --light-text: #f4f7f6;
             --white: #ffffff;
             --success: #25d366;
+            --cart-highlight: #ccff00; /* Color llamativo para el carrito */
         }
 
         html { scroll-behavior: smooth; }
@@ -80,8 +81,13 @@
         .btn-tracking { background: var(--primary); }
         .btn-contacto { background: #4a4f55; }
         
-        /* ESTILO BOTÓN CARRITO */
-        .cart-btn { background: var(--primary); position: relative; }
+        /* ESTILO BOTÓN CARRITO LLAMATIVO */
+        .cart-btn { 
+            background: var(--cart-highlight); 
+            color: #000 !important; /* Texto negro para contraste */
+            position: relative; 
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.3);
+        }
         .cart-count {
             position: absolute; top: -5px; right: -5px;
             background: #ff0000; color: white; border-radius: 50%;
@@ -222,7 +228,7 @@
         </div>
         <div class="nav-links">
             <a href="#" class="btn-inicio"><i class="fas fa-home"></i> Inicio</a>
-            <button class="cart-btn btn-productos" onclick="toggleCart()">
+            <button class="cart-btn" onclick="toggleCart()">
                 <i class="fas fa-shopping-cart"></i> Carrito
                 <span class="cart-count" id="cart-count">0</span>
             </button>
@@ -306,19 +312,24 @@
     </a>
 
     <script>
-        // 1. GESTIÓN DE PRODUCTOS (Edita esto para cambiar el inventario)
+        // 1. GESTIÓN DE PRODUCTOS
         const productos = [
             { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" },
             { id: 2, nombre: "Kit de Salud Prioritario", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" },
-            { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" }
+            { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" },
+            { id: 4, nombre: "Combo Aseo Premium", precio: 60.00, img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600" },
+            { id: 5, nombre: "Combo Extra (Oculto)", precio: 50.00, img: "https://via.placeholder.com/600" }
         ];
 
         let carrito = [];
 
-        // 2. CARGAR PRODUCTOS EN LA WEB
+        // 2. CARGAR PRODUCTOS EN LA WEB (LIMITADO A 4)
         function loadProducts() {
             const container = document.getElementById('product-container');
-            container.innerHTML = productos.map(p => `
+            // Usamos .slice(0, 4) para tomar solo los primeros 4 elementos del array
+            const visibleProducts = productos.slice(0, 4);
+            
+            container.innerHTML = visibleProducts.map(p => `
                 <div class="product-card">
                     <img src="${p.img}" alt="${p.nombre}">
                     <h3>${p.nombre}</h3>
@@ -333,7 +344,6 @@
             const prod = productos.find(p => p.id === id);
             carrito.push(prod);
             updateCartUI();
-            // Efecto visual simple
             alert(`¡Añadido: ${prod.nombre}!`);
         }
 
