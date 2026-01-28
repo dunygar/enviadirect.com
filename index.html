@@ -28,10 +28,10 @@
             overflow-x: hidden; 
         }
 
-        /* --- NAVEGACIÓN --- */
+        /* --- NAVEGACIÓN RESPONSIVA --- */
         nav {
             background: #23272a; 
-            padding: 0.8rem 5%; /* Un poco más de padding para el logo grande */
+            padding: 0.8rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,19 +39,16 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            flex-wrap: wrap; /* Permite que el menú baje si no hay espacio */
         }
 
-        .logo-container { flex: 1; display: flex; align-items: center; }
+        .logo-container { flex: 1; display: flex; align-items: center; min-width: 150px; }
         
-        /* LOGO MÁS GRANDE */
         .logo-img { 
-            height: 110px; /* Aumentado de 80px a 110px */
+            height: 110px; 
             width: auto; 
             filter: brightness(0) invert(1); 
-            transition: transform 0.3s ease;
-        }
-        .logo-img:hover {
-            transform: scale(1.05);
+            transition: 0.3s;
         }
 
         .aviso-central {
@@ -64,21 +61,29 @@
             font-size: 0.85rem;
             font-weight: 600;
             border: 1px solid rgba(208, 225, 255, 0.2);
+            margin: 0 10px;
         }
 
-        .nav-links { flex: 2.5; display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+        .nav-links { 
+            flex: 2.5; 
+            display: flex; 
+            justify-content: flex-end; 
+            align-items: center; 
+            gap: 10px;
+            flex-wrap: wrap; /* Para que los botones se acomoden en móviles */
+        }
         
         .nav-links a {
             text-decoration: none;
             color: var(--white) !important;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 5px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn-inicio { background: #4f545c; }
@@ -89,14 +94,13 @@
         .nav-links a:hover {
             transform: translateY(-2px);
             filter: brightness(1.2);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
-        /* --- HERO CON SLIDER --- */
+        /* --- HERO RESPONSIVO --- */
         .hero-container {
             position: relative;
             width: 100%;
-            height: 550px;
+            height: 500px; /* Un poco más bajo para mejor ergonomía */
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -109,8 +113,7 @@
             width: 300%;
             height: 100%;
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
         }
 
@@ -126,7 +129,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
@@ -134,78 +137,87 @@
             z-index: 10;
             text-align: center;
             color: var(--white);
-            max-width: 900px;
-            padding: 0 20px;
+            max-width: 90%;
+            padding: 0 10px;
         }
 
-        .fade-text { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
-
         .hero-content h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 20px; 
+            font-size: 2.8rem; /* Reducido para móviles base */
+            margin-bottom: 15px; 
             font-weight: 700;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.8); 
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
         }
 
         .hero-content p { 
-            font-size: 1.6rem; 
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            font-size: 1.2rem; 
+            margin-bottom: 25px;
         }
 
-        /* --- SECCIÓN CONFIANZA --- */
+        /* --- SECCIONES RESPONSIVAS --- */
         .confianza {
             background: #23272a;
-            padding: 50px 5%;
+            padding: 40px 5%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             text-align: center;
         }
-        .confianza-item i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
-        .confianza-item h4 { color: var(--white); margin-bottom: 10px; }
-        .confianza-item p { color: #b9bbbe; font-size: 0.95rem; }
 
-        /* --- PRODUCTOS --- */
-        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+        }
         
         .product-card { 
             background: var(--card-bg); 
-            border-radius: 20px; 
+            border-radius: 15px; 
             overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
             text-align: center; 
-            padding-bottom: 25px; 
+            padding-bottom: 20px; 
             border: 1px solid rgba(255,255,255,0.05); 
-            transition: 0.3s; 
         }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
-        .product-card img { width: 100%; height: 230px; object-fit: cover; }
-        .product-card h3 { color: var(--white); margin: 20px 0 10px; }
-        
-        .btn-main { background: var(--secondary); color: white; padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; border: none; cursor: pointer; transition: 0.3s; }
-        .btn-main:hover { background: #e68a00; transform: scale(1.05); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+
+        .btn-main { 
+            background: var(--secondary); 
+            color: white; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            display: inline-block; 
+        }
 
         .whatsapp-float {
-            position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px;
+            position: fixed; width: 55px; height: 55px; bottom: 20px; right: 20px;
             background-color: var(--success); color: #FFF; border-radius: 50px; text-align: center;
-            font-size: 35px; box-shadow: 2px 5px 20px rgba(0,0,0,0.5); z-index: 1000;
+            font-size: 30px; box-shadow: 2px 5px 15px rgba(0,0,0,0.5); z-index: 1000;
             display: flex; align-items: center; justify-content: center; text-decoration: none;
         }
 
-        footer { background: #1a1c1e; color: #72767d; text-align: center; padding: 60px 5%; }
+        footer { background: #1a1c1e; color: #72767d; text-align: center; padding: 40px 5%; font-size: 0.9rem; }
 
-        @media (max-width: 1100px) {
-            .nav-links { gap: 5px; }
-            .nav-links a { padding: 8px 12px; font-size: 0.85rem; }
+        /* --- MEDIA QUERIES ESPECÍFICAS PARA MÓVILES --- */
+        @media (max-width: 768px) {
+            nav { justify-content: center; padding: 1rem; }
+            .logo-container { justify-content: center; margin-bottom: 10px; width: 100%; }
             .logo-img { height: 80px; }
+            .aviso-central { display: none; } /* Ocultar aviso en pantallas pequeñas */
+            .nav-links { justify-content: center; width: 100%; }
+            .nav-links a { font-size: 0.75rem; padding: 6px 10px; }
+            
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-container { height: 400px; }
         }
 
-        @media (max-width: 992px) {
-            .aviso-central { display: none; }
-            .hero-content h1 { font-size: 2.2rem; }
-            nav { padding: 0.5rem 5%; }
+        @media (max-width: 480px) {
+            .nav-links { gap: 5px; }
+            .nav-links a { width: 45%; justify-content: center; } /* Botones más grandes para tocar con el dedo */
+            .hero-content h1 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -226,7 +238,7 @@
                 <i class="fas fa-box-open"></i> Productos
             </a>
             <a href="https://www.solvebigtech.com/solvedc/tracking/dayready/" target="_blank" class="btn-tracking">
-                <i class="fas fa-search-location"></i> Seguimiento
+                <i class="fas fa-search-location"></i> Rastreo
             </a>
             <a href="#contacto" class="btn-contacto">
                 <i class="fas fa-envelope"></i> Contacto
@@ -252,22 +264,22 @@
         <div class="confianza-item">
             <i class="fas fa-shield-alt"></i>
             <h4>Pago Seguro</h4>
-            <p>Dinero y datos 100% protegidos.</p>
+            <p>100% protegidos.</p>
         </div>
         <div class="confianza-item">
             <i class="fas fa-box-check"></i>
-            <h4>Entrega Garantizada</h4>
-            <p>Seguimiento real hasta el destino.</p>
+            <h4>Garantizado</h4>
+            <p>Entrega real.</p>
         </div>
         <div class="confianza-item">
             <i class="fas fa-headset"></i>
-            <h4>Soporte 24/7</h4>
-            <p>Atención directa por WhatsApp.</p>
+            <h4>Soporte</h4>
+            <p>WhatsApp 24/7.</p>
         </div>
     </div>
 
     <section id="productos">
-        <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.2rem; color: var(--white);">Productos Populares</h2>
+        <h2 style="text-align: center; margin-bottom: 40px; color: var(--white);">Productos Populares</h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Combo Familiar">
@@ -291,7 +303,7 @@
     </section>
 
     <footer id="contacto">
-        <img src="logo.png" alt="Logo" style="height: 80px; filter: brightness(0) invert(1); margin-bottom: 20px; opacity: 0.8;">
+        <img src="logo.png" alt="Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; opacity: 0.8;">
         <p style="color: #b9bbbe;">WhatsApp: +TU_NUMERO_AQUÍ</p>
         <p>&copy; 2026 EnviaDirect - Envíos a Cuba</p>
     </footer>
@@ -328,7 +340,7 @@
 
             title.style.opacity = 0;
             desc.style.opacity = 0;
-            title.style.transform = "translateY(-20px)";
+            title.style.transform = "translateY(-10px)";
 
             setTimeout(() => {
                 slider.style.transform = `translateX(-${index * 33.333}%)`;
