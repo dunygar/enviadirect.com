@@ -102,7 +102,6 @@
             padding: 0 20px;
         }
 
-        /* Animación para el texto */
         .fade-text {
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
@@ -182,8 +181,8 @@
         </div>
         
         <div class="hero-content">
-            <h1 id="hero-title" class="fade-text">Conectamos a tu familia con la rapidez que ellos merecen</h1>
-            <p id="hero-desc" class="fade-text">Envíos seguros y garantizados a toda Cuba con EnviaDirect</p>
+            <h1 id="hero-title" class="fade-text">Conectamos a tu familia con la rapidez que merece</h1>
+            <p id="hero-desc" class="fade-text">¡Aprovecha nuestros envíos aéreos desde solo $3.49 USD la libra!</p>
             <a href="#productos" class="btn-main">Explorar Catálogo</a>
         </div>
     </div>
@@ -212,19 +211,19 @@
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Combo Familiar">
                 <h3>Combo Familiar Súper</h3>
-                <span style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$95.00 USD</span>
+                <span class="price" style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$95.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" alt="Medicinas">
                 <h3>Kit de Salud Prioritario</h3>
-                <span style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$45.00 USD</span>
+                <span class="price" style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$45.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" alt="Cárnicos">
                 <h3>Pack Cárnico Especial</h3>
-                <span style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$110.00 USD</span>
+                <span class="price" style="color: var(--primary); font-weight: 700; font-size: 1.5rem; display: block; margin-bottom: 15px;">$110.00 USD</span>
                 <a href="https://wa.me/TU_NUMERO" class="btn-main">Pedir ahora</a>
             </div>
         </div>
@@ -245,11 +244,10 @@
         const title = document.getElementById('hero-title');
         const desc = document.getElementById('hero-desc');
 
-        // AQUÍ PUEDES EDITAR LOS TEXTOS DE CADA IMAGEN
         const texts = [
             {
                 title: "Conectamos a tu familia con la rapidez que merece",
-                desc: "Envíos aéreos seguros y garantizados a toda Cuba."
+                desc: "¡Aprovecha nuestros envíos aéreos desde solo $3.49 USD la libra!"
             },
             {
                 title: "Envíos Marítimos: Carga pesada sin preocupaciones",
@@ -267,24 +265,18 @@
             index++;
             if (index >= texts.length) index = 0;
 
-            // 1. Desvanecer texto actual
             title.style.opacity = 0;
             desc.style.opacity = 0;
             title.style.transform = "translateY(-20px)";
 
             setTimeout(() => {
-                // 2. Mover la imagen
                 slider.style.transform = `translateX(-${index * 33.333}%)`;
-
-                // 3. Cambiar contenido del texto
                 title.innerText = texts[index].title;
                 desc.innerText = texts[index].desc;
-
-                // 4. Mostrar nuevo texto con animación
                 title.style.opacity = 1;
                 desc.style.opacity = 1;
                 title.style.transform = "translateY(0)";
-            }, 600); // Espera a que el texto se oculte antes de mover la imagen
+            }, 600);
         }
 
         setInterval(updateSlider, 5000);
