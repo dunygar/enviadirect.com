@@ -51,20 +51,16 @@
             min-width: 150px; 
         }
         
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: transform 0.3s ease;
+        .logo-img { 
+            height: 100px; 
+            width: auto; 
+            filter: brightness(0) invert(1); 
+            transition: all 0.3s ease;
         }
         
-        .logo-text:hover {
+        .logo-img:hover {
             transform: scale(1.05);
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
 
         .aviso-central {
@@ -530,22 +526,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        .footer-logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0.7;
-            margin-bottom: 20px;
-            transition: opacity 0.3s ease;
-        }
-        
-        .footer-logo:hover {
-            opacity: 1;
-        }
-        
         .footer-contact { 
             display: flex; 
             justify-content: center; 
@@ -644,7 +624,7 @@
         }
 
         @media (max-width: 768px) {
-            .logo-text { font-size: 1.4rem; }
+            .logo-img { height: 70px; }
             .aviso-central { display: none; }
             .nav-links a, .cart-btn { 
                 width: 48%; 
@@ -663,7 +643,7 @@
 
     <nav>
         <a href="#" class="logo-container">
-            <span class="logo-text">EnviaDirect</span>
+            <img src="logo.png" alt="EnviaDirect Logo" class="logo-img">
         </a>
         <div class="aviso-central">
             <i class="fas fa-truck-fast"></i> Envíos a Cuba con seguridad garantizada.
@@ -731,7 +711,7 @@
     </div>
 
     <footer id="contacto">
-        <div class="footer-logo">EnviaDirect</div>
+        <img src="logo.png" alt="EnviaDirect Logo" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.6; margin-bottom: 20px; transition: all 0.3s ease;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity='0.6'; this.style.transform='scale(1)'">
         <div class="footer-contact">
             <div><i class="fas fa-phone-alt"></i> <a href="tel:+13057359953">+1 (305) 735-9953</a></div>
             <div><i class="fab fa-whatsapp"></i> <a href="https://wa.me/13054845668" target="_blank">+1 (305) 484-5668</a></div>
