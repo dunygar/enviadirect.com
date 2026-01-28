@@ -228,6 +228,7 @@
     <a href="https://wa.me/13054845668" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
+        // Lista completa de productos (aquí puedes tener muchos, pero solo se verán 3)
         const productos = [
             { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" },
             { id: 2, nombre: "Kit de Salud Prioritario", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" },
@@ -239,7 +240,8 @@
 
         function loadProducts() {
             const container = document.getElementById('product-container');
-            container.innerHTML = productos.slice(0, 4).map(p => `
+            // .slice(0, 3) asegura que solo se muestren los primeros tres
+            container.innerHTML = productos.slice(0, 3).map(p => `
                 <div class="product-card">
                     <img src="${p.img}">
                     <h3>${p.nombre}</h3>
