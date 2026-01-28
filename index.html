@@ -97,6 +97,7 @@
         .hero-container {
             position: relative; width: 100%; height: 500px;
             overflow: hidden; display: flex; align-items: center; justify-content: center;
+            border-bottom: 2px solid rgba(255,255,255,0.05);
         }
 
         .slider {
@@ -113,17 +114,18 @@
         /* --- PRODUCTOS --- */
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; text-align: center; padding-bottom: 20px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.03); position: relative;}
+        .product-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; text-align: center; padding-bottom: 20px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.03); }
         .product-card img { width: 100%; height: 220px; object-fit: cover; }
-        .badge-out { position: absolute; top: 10px; right: 10px; background: red; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: bold; }
+        .product-card h3 { color: var(--white); margin: 15px 0; font-size: 1.1rem; }
 
         .btn-main { 
             background: var(--secondary); color: white; padding: 10px 22px; 
-            border-radius: 50px; font-weight: 600; font-size: 0.85rem; border: none; cursor: pointer;
+            text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.85rem;
+            transition: 0.3s; border: none; cursor: pointer;
         }
 
-        /* --- MODALES --- */
-        .modal {
+        /* --- MODAL CARRITO --- */
+        #cart-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center;
         }
@@ -132,15 +134,12 @@
             max-height: 80vh; overflow-y: auto; border: 1px solid var(--primary);
         }
 
-        /* --- PANEL ADMIN --- */
-        .admin-form input, .admin-form select {
-            width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #444; background: #1a1c1e; color: white; box-sizing: border-box;
-        }
-
         /* --- FOOTER --- */
         footer { background: #121416; color: #72767d; text-align: center; padding: 50px 5%; font-size: 0.85rem; }
         .footer-contact { display: flex; justify-content: center; gap: 30px; margin: 20px 0; flex-wrap: wrap; }
-        .footer-contact a { color: white; text-decoration: none; }
+        .footer-contact div { display: flex; align-items: center; gap: 10px; color: var(--white); font-weight: 500; }
+        .footer-contact i { color: var(--secondary); font-size: 1.1rem; }
+        .footer-contact a { color: inherit; text-decoration: none; }
 
         .whatsapp-float {
             position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px;
@@ -150,6 +149,8 @@
         }
 
         @media (max-width: 768px) {
+            .logo-img { height: 70px; }
+            .aviso-central { display: none; }
             .nav-links a, .cart-btn { width: 45%; justify-content: center; }
         }
     </style>
@@ -165,7 +166,7 @@
         </div>
         <div class="nav-links">
             <a href="#" class="btn-inicio"><i class="fas fa-home"></i> Inicio</a>
-            <button class="cart-btn" onclick="toggleModal('cart-modal')">
+            <button class="cart-btn" onclick="toggleCart()">
                 <i class="fas fa-shopping-cart"></i> Carrito
                 <span class="cart-count" id="cart-count">0</span>
             </button>
@@ -178,10 +179,12 @@
         <div class="slider" id="slider">
             <div class="slide" style="background-image: url('aereo.png');"></div>
             <div class="slide" style="background-image: url('maritimo.png');"></div>
+            <div class="slide" style="background-image: url('terrestre.png');"></div>
         </div>
         <div class="hero-content">
             <h1 id="hero-title">Tu familia en Cuba más cerca que nunca</h1>
             <p id="hero-desc">Envíos aéreos express desde solo $3.49 USD la libra.</p>
+            <a href="#productos" class="btn-main">Ver Productos</a>
         </div>
     </div>
 
@@ -191,165 +194,94 @@
             </div>
     </section>
 
-    <div id="cart-modal" class="modal">
+    <div id="cart-modal">
         <div class="modal-content">
-            <h2 style="color:white">Tu Carrito</h2>
-            <div id="cart-items"></div>
-            <div style="font-size:1.5rem; margin:20px 0; text-align:right">Total: $<span id="cart-total">0</span></div>
+            <h2 style="color:white; margin-top:0">Tu Pedido</h2>
+            <div id="cart-items" style="color: #ccc"></div>
+            <div style="font-size:1.3rem; font-weight:700; text-align:right; margin:20px 0">Total: $<span id="cart-total">0.00</span></div>
             <button class="btn-main" style="background:var(--success); width:100%; padding:15px" onclick="sendWhatsApp()">Pedir por WhatsApp</button>
-            <button onclick="toggleModal('cart-modal')" style="background:none; border:none; color:grey; width:100%; margin-top:10px; cursor:pointer">Cerrar</button>
-        </div>
-    </div>
-
-    <div id="admin-modal" class="modal">
-        <div class="modal-content">
-            <h2 style="color:white">Gestión de Inventario</h2>
-            <div class="admin-form">
-                <input type="text" id="adm-name" placeholder="Nombre del Producto">
-                <input type="number" id="adm-price" placeholder="Precio (USD)">
-                <input type="text" id="adm-img" placeholder="URL de la imagen">
-                <select id="adm-stock">
-                    <option value="true">Disponible</option>
-                    <option value="false">Agotado</option>
-                </select>
-                <button class="btn-main" style="width:100%" onclick="saveProduct()">Guardar Producto</button>
-            </div>
-            <hr style="margin:20px 0; border:0; border-top:1px solid #444">
-            <div id="admin-list">
-                </div>
-            <button onclick="toggleModal('admin-modal')" style="background:none; border:none; color:grey; width:100%; margin-top:10px; cursor:pointer">Cerrar</button>
+            <button onclick="toggleCart()" style="background:none; border:none; color:grey; width:100%; margin-top:15px; cursor:pointer">Cerrar</button>
         </div>
     </div>
 
     <footer id="contacto">
-        <img src="logo.png" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.6;">
+        <img src="logo.png" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.6; margin-bottom: 20px">
         <div class="footer-contact">
             <div><i class="fab fa-whatsapp"></i> <a href="https://wa.me/13054845668">+1 (305) 484-5668</a></div>
             <div><i class="fas fa-envelope"></i> <a href="mailto:info@enviadirect.com">info@enviadirect.com</a></div>
         </div>
-        <p>&copy; 2026 EnviaDirect Cuba | <i class="fas fa-key" style="cursor:pointer" onclick="toggleModal('admin-modal')"></i></p>
+        <p>&copy; 2026 EnviaDirect - Todos los derechos reservados.</p>
     </footer>
 
     <a href="https://wa.me/13054845668" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // --- LÓGICA DE DATOS ---
-        let productos = JSON.parse(localStorage.getItem('mis_productos')) || [
-            { id: Date.now(), nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600", disponible: true }
+        const productos = [
+            { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" },
+            { id: 2, nombre: "Kit de Salud Prioritario", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" },
+            { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" },
+            { id: 4, nombre: "Combo Aseo Premium", precio: 60.00, img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600" }
         ];
 
         let carrito = [];
 
-        function loadAll() {
-            renderProducts();
-            renderAdminList();
-        }
-
-        // --- RENDERIZAR EN LA WEB (MAX 4) ---
-        function renderProducts() {
+        function loadProducts() {
             const container = document.getElementById('product-container');
-            const visible = productos.slice(0, 4);
-            container.innerHTML = visible.map(p => `
+            container.innerHTML = productos.slice(0, 4).map(p => `
                 <div class="product-card">
-                    ${!p.disponible ? '<div class="badge-out">AGOTADO</div>' : ''}
-                    <img src="${p.img}" alt="${p.nombre}">
+                    <img src="${p.img}">
                     <h3>${p.nombre}</h3>
-                    <span style="color:var(--secondary); font-weight:700; font-size:1.4rem; display:block; margin-bottom:15px">$${parseFloat(p.price || p.precio).toFixed(2)}</span>
-                    <button class="btn-main" onclick="addToCart(${p.id})" ${!p.disponible ? 'disabled style="background:grey"' : ''}>
-                        ${p.disponible ? 'Añadir al Carrito' : 'No disponible'}
-                    </button>
+                    <span style="color:var(--secondary); font-weight:700; font-size:1.4rem; display:block; margin-bottom:15px">$${p.precio.toFixed(2)} USD</span>
+                    <button class="btn-main" onclick="addToCart(${p.id})">Añadir al Carrito</button>
                 </div>
             `).join('');
         }
 
-        // --- GESTIÓN ADMIN ---
-        function saveProduct() {
-            const name = document.getElementById('adm-name').value;
-            const price = document.getElementById('adm-price').value;
-            const img = document.getElementById('adm-img').value;
-            const stock = document.getElementById('adm-stock').value === "true";
-
-            if(!name || !price || !img) return alert("Llena todos los campos");
-
-            const newProd = { id: Date.now(), nombre: name, precio: parseFloat(price), img: img, disponible: stock };
-            productos.unshift(newProd); // Agrega al inicio
-            localStorage.setItem('mis_productos', JSON.stringify(productos));
-            
-            // Limpiar y actualizar
-            document.getElementById('adm-name').value = "";
-            document.getElementById('adm-price').value = "";
-            document.getElementById('adm-img').value = "";
-            loadAll();
-            alert("Producto agregado con éxito");
-        }
-
-        function deleteProduct(id) {
-            if(confirm("¿Borrar este producto?")) {
-                productos = productos.filter(p => p.id !== id);
-                localStorage.setItem('mis_productos', JSON.stringify(productos));
-                loadAll();
-            }
-        }
-
-        function renderAdminList() {
-            const list = document.getElementById('admin-list');
-            list.innerHTML = productos.map(p => `
-                <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.8rem">
-                    <span>${p.nombre}</span>
-                    <i class="fas fa-trash" style="color:red; cursor:pointer" onclick="deleteProduct(${p.id})"></i>
-                </div>
-            `).join('');
-        }
-
-        // --- CARRITO ---
         function addToCart(id) {
-            const prod = productos.find(p => p.id === id);
-            carrito.push(prod);
-            updateCartUI();
-            alert("Añadido al carrito");
+            const p = productos.find(x => x.id === id);
+            carrito.push(p);
+            updateUI();
+            alert("Producto añadido");
         }
 
-        function updateCartUI() {
+        function updateUI() {
             document.getElementById('cart-count').innerText = carrito.length;
-            const items = document.getElementById('cart-items');
-            items.innerHTML = carrito.map((item, idx) => `
+            const list = document.getElementById('cart-items');
+            list.innerHTML = carrito.map((item, i) => `
                 <div style="display:flex; justify-content:space-between; margin-bottom:10px">
                     <span>${item.nombre}</span>
-                    <span>$${parseFloat(item.price || item.precio).toFixed(2)} <i class="fas fa-times" onclick="removeCart(${idx})" style="color:red; cursor:pointer"></i></span>
+                    <span>$${item.precio.toFixed(2)} <i class="fas fa-times" onclick="remove(${i})" style="color:red; cursor:pointer; margin-left:10px"></i></span>
                 </div>
             `).join('');
-            const total = carrito.reduce((s, i) => s + parseFloat(i.price || i.precio), 0);
+            const total = carrito.reduce((s, x) => s + x.precio, 0);
             document.getElementById('cart-total').innerText = total.toFixed(2);
         }
 
-        function removeCart(idx) {
-            carrito.splice(idx, 1);
-            updateCartUI();
+        function remove(i) {
+            carrito.splice(i, 1);
+            updateUI();
         }
 
-        function toggleModal(id) {
-            const m = document.getElementById(id);
+        function toggleCart() {
+            const m = document.getElementById('cart-modal');
             m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
         }
 
         function sendWhatsApp() {
             if(carrito.length === 0) return;
-            let msg = "Hola EnviaDirect, mi pedido es:%0A";
-            carrito.forEach(i => msg += `- ${i.nombre} ($${parseFloat(i.price || i.precio).toFixed(2)})%0A`);
-            const total = carrito.reduce((s, i) => s + parseFloat(i.price || i.precio), 0);
-            msg += `%0A*TOTAL: $${total.toFixed(2)} USD*`;
+            let msg = "Hola EnviaDirect, quiero este pedido:%0A";
+            carrito.forEach(x => msg += `- ${x.nombre} ($${x.precio})%0A`);
             window.open(`https://wa.me/13054845668?text=${msg}`);
         }
 
-        // --- SLIDER ---
         const slider = document.getElementById('slider');
-        let sIdx = 0;
+        let idx = 0;
         setInterval(() => {
-            sIdx = (sIdx + 1) % 2;
-            slider.style.transform = `translateX(-${sIdx * 50}%)`;
+            idx = (idx + 1) % 3;
+            slider.style.transform = `translateX(-${idx * 33.333}%)`;
         }, 5000);
 
-        loadAll();
+        loadProducts();
     </script>
 </body>
 </html>
