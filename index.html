@@ -694,6 +694,11 @@
         <h2 style="text-align: center; margin-bottom: 50px; color: var(--white); font-size: 2.2rem;">Productos Populares</h2>
         <div class="product-grid" id="product-container">
         </div>
+        <div id="toggle-btn-container" style="text-align: center; margin-top: 40px; display: none;">
+            <button id="toggle-products-btn" class="btn-main" onclick="toggleProducts()" style="padding: 14px 35px; font-size: 1rem;">
+                <i class="fas fa-chevron-down"></i> Ver Más Productos
+            </button>
+        </div>
     </section>
 
     <div id="cart-modal">
@@ -728,14 +733,23 @@
         const productos = [
             { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" },
             { id: 2, nombre: "Kit de Salud Prioritario", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" },
-            { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" }
+            { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" },
+            { id: 4, nombre: "Combo de Higiene Personal", precio: 65.00, img: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600" },
+            { id: 5, nombre: "Pack de Alimentos Básicos", precio: 80.00, img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600" },
+            { id: 6, nombre: "Kit Infantil Completo", precio: 70.00, img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600" },
+            { id: 7, nombre: "Combo Electrónico", precio: 150.00, img: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600" },
+            { id: 8, nombre: "Pack de Ropa y Calzado", precio: 120.00, img: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600" },
+            { id: 9, nombre: "Kit de Construcción", precio: 135.00, img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600" }
         ];
 
         let carrito = [];
+        let mostrarTodos = false;
 
         function loadProducts() {
             const container = document.getElementById('product-container');
-            container.innerHTML = productos.slice(0, 3).map(p => `
+            const productosAMostrar = mostrarTodos ? productos : productos.slice(0, 3);
+            
+            container.innerHTML = productosAMostrar.map(p => `
                 <div class="product-card">
                     <div class="product-image-container">
                         <img src="${p.img}" alt="${p.nombre}">
@@ -747,6 +761,36 @@
                     </button>
                 </div>
             `).join('');
+            
+            // Actualizar el botón de ver más
+            updateToggleButton();
+        }
+        
+        function toggleProducts() {
+            mostrarTodos = !mostrarTodos;
+            loadProducts();
+            
+            // Scroll suave a la sección de productos
+            if (mostrarTodos) {
+                setTimeout(() => {
+                    document.getElementById('productos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+        
+        function updateToggleButton() {
+            const btnContainer = document.getElementById('toggle-btn-container');
+            if (productos.length > 3) {
+                btnContainer.style.display = 'block';
+                const btn = document.getElementById('toggle-products-btn');
+                if (mostrarTodos) {
+                    btn.innerHTML = '<i class="fas fa-chevron-up"></i> Ver Menos Productos';
+                } else {
+                    btn.innerHTML = '<i class="fas fa-chevron-down"></i> Ver Más Productos';
+                }
+            } else {
+                btnContainer.style.display = 'none';
+            }
         }
 
         function addToCart(id) {
