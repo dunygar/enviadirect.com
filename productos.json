@@ -1,24 +1,24 @@
 [
   {
     "id": 1,
-    "nombre": "Inversor Hibrido Sumry 4kw ",
+    "nombre": "Inversor Hibrido Sumry 4kw",
     "precio": 430.00,
     "img": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
     "descripcion": "Inversor Hibrido Sumry 4kw 24V-120A"
   },
   {
     "id": 2,
-    "nombre": "Kit de Salud Prioritario",
-    "precio": 45.00,
+    "nombre": "Inversor Hibrido Sumry 3.6kw",
+    "precio": 400.00,
     "img": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
-    "descripcion": "Medicamentos y productos esenciales"
+    "descripcion": "Inversor Hibrido Sumry 3.6kw"
   },
   {
     "id": 3,
-    "nombre": "Pack Cárnico Especial",
+    "nombre": "Bateria Lifepo4 Defume 12.8V-300A",
     "precio": 110.00,
     "img": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
-    "descripcion": "Carnes y embutidos premium"
+    "descripcion": "Bateria Lifepo4 Defume 12.8V-300A"
   },
   {
     "id": 4,
