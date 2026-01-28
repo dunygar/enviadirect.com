@@ -30,23 +30,6 @@
             overflow-x: hidden; 
         }
 
-        /* --- EFECTOS DE BOTONES --- */
-        .btn-inicio, .btn-productos, .btn-tracking, .btn-contacto, .cart-btn, .btn-main, .whatsapp-float {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        }
-
-        .nav-links a:hover, .cart-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn-main:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
-        }
-
         /* --- NAVEGACIÓN --- */
         nav {
             background: #121416; 
@@ -58,37 +41,23 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            flex-wrap: wrap;
         }
 
-        .logo-container { flex: 1; display: flex; align-items: center; min-width: 150px; }
-        .logo-img { height: 100px; width: auto; filter: brightness(0) invert(1); transition: 0.3s; }
+        .logo-img { height: 80px; width: auto; filter: brightness(0) invert(1); }
 
-        .aviso-central {
-            flex: 1.2;
-            text-align: center;
-            background: rgba(0, 82, 204, 0.15);
-            color: #8db5ff;
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(208, 225, 255, 0.1);
-            margin: 0 10px;
-        }
-
-        .nav-links { flex: 2.5; display: flex; justify-content: flex-end; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .nav-links { display: flex; align-items: center; gap: 10px; }
         
         .nav-links a, .cart-btn {
             text-decoration: none;
             color: var(--white) !important;
-            padding: 8px 14px;
+            padding: 8px 15px;
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            transition: 0.3s;
             border: none;
             cursor: pointer;
         }
@@ -96,50 +65,46 @@
         .btn-inicio { background: #3a3e44; }
         .btn-productos { background: var(--secondary); }
         .btn-tracking { background: var(--primary); }
-        .btn-contacto { background: #4a4f55; }
-        
-        .cart-btn { 
-            background: var(--cart-highlight); 
-            color: #000 !important; 
-            position: relative; 
-        }
+        .cart-btn { background: var(--cart-highlight); color: #000 !important; }
 
-        /* --- SECCIÓN CONFIANZA (DISEÑO MEJORADO) --- */
+        /* --- SECCIÓN CONFIANZA INTERACTIVA --- */
         .confianza {
             padding: 80px 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
             background: #1a1c1e;
         }
 
         .confianza-card {
-            background: rgba(45, 49, 54, 0.5);
-            padding: 40px 30px;
+            background: rgba(45, 49, 54, 0.4);
+            padding: 50px 35px;
             border-radius: 25px;
             text-align: center;
-            transition: 0.4s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
+            cursor: default;
         }
 
         .confianza-card:hover { 
-            background: rgba(54, 59, 65, 0.8);
+            background: rgba(54, 59, 65, 0.7);
             border-color: var(--neon-blue);
-            transform: translateY(-10px);
+            transform: translateY(-12px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
-        /* Contenedor del Icono Estilo Imagen */
+        /* Contenedor del Icono Neón */
         .icon-box-neon {
             position: relative;
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .icon-ring {
@@ -148,28 +113,43 @@
             height: 100%;
             border-radius: 50%;
             border: 3px solid var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6), inset 0 0 15px rgba(0, 212, 255, 0.4);
-            transition: 0.4s;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4), inset 0 0 10px rgba(0, 212, 255, 0.2);
+            transition: all 0.5s ease;
         }
 
+        /* Animación de pulso al pasar el mouse */
         .confianza-card:hover .icon-ring {
-            box-shadow: 0 0 35px rgba(0, 212, 255, 0.9), inset 0 0 20px rgba(0, 212, 255, 0.6);
-            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--neon-blue), inset 0 0 20px var(--neon-blue);
+            transform: scale(1.1);
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 20px var(--neon-blue), inset 0 0 10px var(--neon-blue); }
+            50% { box-shadow: 0 0 40px var(--neon-blue), inset 0 0 25px var(--neon-blue); }
+            100% { box-shadow: 0 0 20px var(--neon-blue), inset 0 0 10px var(--neon-blue); }
         }
 
         .icon-box-neon i {
-            font-size: 42px;
+            font-size: 45px;
             color: var(--white);
             z-index: 2;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+            transition: 0.4s;
+        }
+
+        .confianza-card:hover i {
+            transform: scale(1.15);
+            color: var(--neon-blue);
+            text-shadow: 0 0 15px var(--neon-blue);
         }
 
         .confianza-card h4 { 
             color: var(--white); 
-            font-size: 1.3rem; 
-            margin-bottom: 12px; 
+            font-size: 1.4rem; 
+            margin-bottom: 15px; 
             text-transform: uppercase; 
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
         .confianza-card p { 
@@ -177,6 +157,7 @@
             font-size: 0.95rem; 
             line-height: 1.6; 
             margin: 0;
+            font-weight: 300;
         }
 
         /* --- HERO --- */
@@ -191,34 +172,19 @@
         }
 
         .slide { width: 33.333%; height: 100%; background-size: cover; background-position: center; position: relative; }
-        .slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.65); }
 
-        .hero-content { position: relative; z-index: 10; text-align: center; color: var(--white); max-width: 800px; padding: 0 20px; }
+        .hero-content { position: relative; z-index: 10; text-align: center; color: var(--white); max-width: 850px; }
         .hero-content h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; }
         .hero-content p { font-size: 1.2rem; color: #e0e0e0; }
 
-        /* --- PRODUCTOS --- */
-        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { 
-            background: var(--card-bg); 
-            border-radius: 20px; 
-            overflow: hidden; 
-            text-align: center; 
-            padding-bottom: 25px; 
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
-        .product-card img { width: 100%; height: 230px; object-fit: cover; }
-        .product-card h3 { color: var(--white); margin: 20px 0 10px; font-size: 1.2rem; }
-
         .btn-main { 
-            background: var(--secondary); color: white; padding: 12px 25px; 
+            background: var(--secondary); color: white; padding: 12px 30px; 
             text-decoration: none; border-radius: 50px; font-weight: 600;
-            border: none; cursor: pointer; display: inline-block;
+            transition: 0.3s; border: none; cursor: pointer; display: inline-block;
         }
+
+        .btn-main:hover { transform: scale(1.05); filter: brightness(1.1); box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3); }
 
         /* --- FOOTER --- */
         footer { background: #121416; color: #b9bbbe; text-align: center; padding: 60px 5%; border-top: 1px solid #2d3136; }
@@ -232,13 +198,15 @@
             background-color: var(--success); color: #FFF; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; 
             font-size: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.4); z-index: 1000;
-            text-decoration: none;
+            text-decoration: none; transition: 0.3s;
         }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
         @media (max-width: 768px) {
+            .logo-img { height: 60px; }
             .hero-content h1 { font-size: 2.2rem; }
-            .nav-links { justify-content: center; }
-            .aviso-central { display: none; }
+            .nav-links { gap: 5px; }
+            .nav-links a { padding: 8px 10px; font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -248,17 +216,12 @@
         <a href="#" class="logo-container">
             <img src="logo.png" alt="EnviaDirect Logo" class="logo-img">
         </a>
-        <div class="aviso-central">
-            <i class="fas fa-shipping-fast"></i> Envíos a Cuba con seguridad y rapidez garantizada.
-        </div>
         <div class="nav-links">
             <a href="#" class="btn-inicio"><i class="fas fa-home"></i> Inicio</a>
-            <button class="cart-btn" onclick="toggleCart()" id="cart-btn-main">
+            <button class="cart-btn" onclick="alert('Carrito próximamente')">
                 <i class="fas fa-shopping-basket"></i> Carrito
-                <span style="margin-left:5px" id="cart-count">0</span>
             </button>
             <a href="https://www.solvebigtech.com/solvedc/tracking/dayready/" target="_blank" class="btn-tracking"><i class="fas fa-search-location"></i> Rastreo</a>
-            <a href="#contacto" class="btn-contacto"><i class="fas fa-question-circle"></i> Ayuda</a>
         </div>
     </nav>
 
@@ -271,7 +234,7 @@
         <div class="hero-content">
             <h1 id="hero-title">Tu familia en Cuba más cerca que nunca</h1>
             <p id="hero-desc">Envíos aéreos rápidos y seguros desde solo $3.49 USD la libra.</p>
-            <a href="#productos" class="btn-main" style="margin-top: 25px;">Explorar Productos</a>
+            <a href="#productos" class="btn-main" style="margin-top: 25px;">Ver Ofertas</a>
         </div>
     </div>
 
@@ -279,19 +242,21 @@
         <div class="confianza-card">
             <div class="icon-box-neon">
                 <div class="icon-ring"></div>
-                <i class="fas fa-user-shield"></i>
+                <i class="fas fa-shield-halved"></i>
             </div>
             <h4>Pago Seguro</h4>
             <p>Tus transacciones están protegidas. Aceptamos múltiples métodos de pago con total transparencia y seguridad.</p>
         </div>
+
         <div class="confianza-card">
             <div class="icon-box-neon">
                 <div class="icon-ring"></div>
-                <i class="fas fa-box-check"></i>
+                <i class="fas fa-truck-ramp-box"></i>
             </div>
             <h4>Entrega Garantizada</h4>
             <p>Control total de tu logística. Monitoreamos cada paquete hasta la puerta de tu familia en cualquier provincia de Cuba.</p>
         </div>
+
         <div class="confianza-card">
             <div class="icon-box-neon">
                 <div class="icon-ring"></div>
@@ -301,11 +266,6 @@
             <p>¿Tienes alguna duda? Nuestro equipo especializado está disponible 24/7 vía WhatsApp para asistirte personalmente.</p>
         </div>
     </div>
-
-    <section id="productos">
-        <h2 style="text-align: center; margin-bottom: 50px; color: var(--white); font-size: 2.2rem;">Productos Destacados</h2>
-        <div class="product-grid" id="product-container"></div>
-    </section>
 
     <footer id="contacto">
         <img src="logo.png" style="height: 60px; filter: brightness(0) invert(1); opacity: 0.7; margin-bottom: 25px">
@@ -320,33 +280,6 @@
     <a href="https://wa.me/13054845668" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        const productos = [
-            { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" },
-            { id: 2, nombre: "Kit de Salud Prioritario", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" },
-            { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" }
-        ];
-
-        let carrito = [];
-
-        function loadProducts() {
-            const container = document.getElementById('product-container');
-            container.innerHTML = productos.map(p => `
-                <div class="product-card">
-                    <img src="${p.img}">
-                    <h3>${p.nombre}</h3>
-                    <span style="color:var(--secondary); font-weight:700; font-size:1.5rem; display:block; margin-bottom:20px">$${p.precio.toFixed(2)} USD</span>
-                    <button class="btn-main" onclick="addToCart(${p.id})">Añadir al Carrito</button>
-                </div>
-            `).join('');
-        }
-
-        function addToCart(id) {
-            const p = productos.find(x => x.id === id);
-            carrito.push(p);
-            document.getElementById('cart-count').innerText = carrito.length;
-            alert(`${p.nombre} ha sido añadido.`);
-        }
-
         // --- LÓGICA DEL SLIDER ---
         const texts = [
             { title: "Cargas Aéreas Rápidas y Seguras", desc: "Envíos aéreos rápidos y seguros desde solo $3.49 USD la libra." },
@@ -372,8 +305,6 @@
                 p_hero.style.opacity = 1;
             }, 600);
         }, 5000);
-
-        loadProducts();
     </script>
 </body>
 </html>
