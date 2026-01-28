@@ -139,7 +139,8 @@
         .footer-contact { display: flex; justify-content: center; gap: 30px; margin: 20px 0; flex-wrap: wrap; }
         .footer-contact div { display: flex; align-items: center; gap: 10px; color: var(--white); font-weight: 500; }
         .footer-contact i { color: var(--secondary); font-size: 1.1rem; }
-        .footer-contact a { color: inherit; text-decoration: none; }
+        .footer-contact a { color: inherit; text-decoration: none; transition: 0.2s; }
+        .footer-contact a:hover { color: var(--secondary); }
 
         .whatsapp-float {
             position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px;
@@ -152,6 +153,7 @@
             .logo-img { height: 70px; }
             .aviso-central { display: none; }
             .nav-links a, .cart-btn { width: 45%; justify-content: center; }
+            .footer-contact { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -207,8 +209,18 @@
     <footer id="contacto">
         <img src="logo.png" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.6; margin-bottom: 20px">
         <div class="footer-contact">
-            <div><i class="fab fa-whatsapp"></i> <a href="https://wa.me/13054845668">+1 (305) 484-5668</a></div>
-            <div><i class="fas fa-envelope"></i> <a href="mailto:info@enviadirect.com">info@enviadirect.com</a></div>
+            <div>
+                <i class="fas fa-phone-alt"></i> 
+                <a href="tel:+13057359953">+1 (305) 735-9953</a>
+            </div>
+            <div>
+                <i class="fab fa-whatsapp"></i> 
+                <a href="https://wa.me/13054845668" target="_blank">+1 (305) 484-5668</a>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i> 
+                <a href="mailto:info@enviadirect.com">info@enviadirect.com</a>
+            </div>
         </div>
         <p>&copy; 2026 EnviaDirect - Todos los derechos reservados.</p>
     </footer>
@@ -241,7 +253,7 @@
             const p = productos.find(x => x.id === id);
             carrito.push(p);
             updateUI();
-            alert("Producto añadido");
+            alert("Producto añadido al carrito");
         }
 
         function updateUI() {
@@ -269,8 +281,10 @@
 
         function sendWhatsApp() {
             if(carrito.length === 0) return;
-            let msg = "Hola EnviaDirect, quiero este pedido:%0A";
+            let msg = "Hola EnviaDirect, quiero realizar el siguiente pedido:%0A";
             carrito.forEach(x => msg += `- ${x.nombre} ($${x.precio})%0A`);
+            const total = carrito.reduce((s, x) => s + x.precio, 0);
+            msg += `%0A*TOTAL: $${total.toFixed(2)} USD*`;
             window.open(`https://wa.me/13054845668?text=${msg}`);
         }
 
