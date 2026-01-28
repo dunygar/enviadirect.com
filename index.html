@@ -864,7 +864,57 @@
     </a>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        let productos = [];
+        let productos = [
+            // Productos de respaldo - se reemplazarán si el JSON carga correctamente
+            { 
+                id: 1, 
+                nombre: "Combo Familiar Súper", 
+                precio: 95.00, 
+                img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
+                descripcion: "Paquete completo diseñado para toda la familia con productos esenciales de alta calidad.",
+                especificaciones: [
+                    "Peso total: 25 libras aproximadamente",
+                    "Tiempo de entrega: 7-10 días hábiles"
+                ],
+                contenido: [
+                    "5 lbs de arroz premium",
+                    "3 lbs de frijoles negros",
+                    "2 lbs de aceite vegetal"
+                ]
+            },
+            { 
+                id: 2, 
+                nombre: "Kit de Salud Prioritario", 
+                precio: 45.00, 
+                img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
+                descripcion: "Medicamentos y productos esenciales para el cuidado de la salud.",
+                especificaciones: [
+                    "Peso total: 8 libras aproximadamente",
+                    "Envío prioritario con seguimiento"
+                ],
+                contenido: [
+                    "Analgésicos (Paracetamol, Ibuprofeno)",
+                    "Vitaminas multivitamínicas",
+                    "Antibióticos básicos"
+                ]
+            },
+            { 
+                id: 3, 
+                nombre: "Pack Cárnico Especial", 
+                precio: 110.00, 
+                img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
+                descripcion: "Selección premium de carnes y embutidos de la más alta calidad.",
+                especificaciones: [
+                    "Peso total: 30 libras aproximadamente",
+                    "Productos refrigerados durante el envío"
+                ],
+                contenido: [
+                    "10 lbs de pollo entero",
+                    "5 lbs de carne de res",
+                    "3 lbs de chorizo español"
+                ]
+            }
+        ];
         let carrito = [];
         let mostrarTodos = false;
 
@@ -872,18 +922,18 @@
         async function cargarProductos() {
             try {
                 const response = await fetch('productos.json');
-                productos = await response.json();
-                loadProducts();
+                if (response.ok) {
+                    const productosJSON = await response.json();
+                    if (productosJSON && productosJSON.length > 0) {
+                        productos = productosJSON;
+                        console.log('Productos cargados desde JSON:', productos.length);
+                    }
+                }
             } catch (error) {
-                console.error('Error al cargar productos:', error);
-                // Productos de respaldo si falla la carga
-                productos = [
-                    { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" },
-                    { id: 2, nombre: "Kit de Salud Prioritario", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" },
-                    { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" }
-                ];
-                loadProducts();
+                console.log('Usando productos por defecto');
             }
+            // Siempre cargar productos (ya sea del JSON o los de respaldo)
+            loadProducts();
         }
 
         function loadProducts() {
