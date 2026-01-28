@@ -471,8 +471,45 @@
             transform: translateY(-1px) scale(1.02);
         }
 
-        /* --- MODAL CARRITO MEJORADO --- */
-        #cart-modal {
+        .btn-secondary {
+            background: #4a4f55;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-secondary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6067;
+            transform: translateY(-2px);
+        }
+
+        /* --- MODAL CARRITO Y DETALLES --- */
+        #cart-modal, #details-modal {
             display: none; 
             position: fixed; 
             top: 0; 
@@ -503,6 +540,121 @@
             border: 2px solid var(--primary);
             box-shadow: 0 20px 60px rgba(0, 82, 204, 0.5);
             animation: slideUp 0.4s ease;
+        }
+
+        .details-modal-content {
+            background: var(--card-bg);
+            padding: 0;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 20px 60px rgba(255, 153, 0, 0.5);
+            animation: slideUp 0.4s ease;
+        }
+        
+        .details-header {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 23px 23px 0 0;
+        }
+        
+        .details-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .details-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, var(--card-bg), transparent);
+        }
+        
+        .details-body {
+            padding: 30px;
+        }
+        
+        .details-title {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .details-price {
+            font-size: 2rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .details-price small {
+            font-size: 0.9rem;
+            color: #999;
+            font-weight: 400;
+        }
+        
+        .details-section {
+            margin-bottom: 25px;
+        }
+        
+        .details-section h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .details-section p, .details-section ul {
+            color: #b9bbbe;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        
+        .details-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .details-section ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .details-section ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .details-section ul li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .details-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .details-actions .btn-secondary,
+        .details-actions .btn-main {
+            flex: 1;
         }
         
         @keyframes slideUp {
@@ -715,6 +867,12 @@
         </div>
     </div>
 
+    <div id="details-modal">
+        <div class="details-modal-content" id="details-body">
+            <!-- El contenido se carga dinámicamente -->
+        </div>
+    </div>
+
     <footer id="contacto">
         <img src="logo.png" alt="EnviaDirect Logo" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.6; margin-bottom: 20px; transition: all 0.3s ease;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity='0.6'; this.style.transform='scale(1)'">
         <div class="footer-contact">
@@ -744,9 +902,33 @@
                 console.error('Error al cargar productos:', error);
                 // Productos de respaldo si falla la carga
                 productos = [
-                    { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" },
-                    { id: 2, nombre: "Kit de Salud Prioritario", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" },
-                    { id: 3, nombre: "Pack Cárnico Especial", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" }
+                    { 
+                        id: 1, 
+                        nombre: "Combo Familiar Súper", 
+                        precio: 95.00, 
+                        img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
+                        descripcion: "Paquete completo diseñado para toda la familia con productos esenciales de alta calidad.",
+                        especificaciones: ["Peso total: 25 libras aproximadamente", "Tiempo de entrega: 7-10 días hábiles"],
+                        contenido: ["5 lbs de arroz premium", "3 lbs de frijoles negros", "2 lbs de aceite vegetal"]
+                    },
+                    { 
+                        id: 2, 
+                        nombre: "Kit de Salud Prioritario", 
+                        precio: 45.00, 
+                        img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
+                        descripcion: "Medicamentos y productos esenciales para el cuidado de la salud.",
+                        especificaciones: ["Peso total: 8 libras aproximadamente", "Envío prioritario"],
+                        contenido: ["Analgésicos", "Vitaminas multivitamínicas", "Antibióticos básicos"]
+                    },
+                    { 
+                        id: 3, 
+                        nombre: "Pack Cárnico Especial", 
+                        precio: 110.00, 
+                        img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
+                        descripcion: "Selección premium de carnes y embutidos de la más alta calidad.",
+                        especificaciones: ["Peso total: 30 libras aproximadamente", "Productos refrigerados"],
+                        contenido: ["10 lbs de pollo entero", "5 lbs de carne de res", "3 lbs de chorizo español"]
+                    }
                 ];
                 loadProducts();
             }
@@ -763,9 +945,14 @@
                     </div>
                     <h3>${p.nombre}</h3>
                     <span style="color:var(--secondary); font-weight:700; font-size:1.5rem; display:block; margin-bottom:15px">$${p.precio.toFixed(2)} USD</span>
-                    <button class="btn-main" onclick="addToCart(${p.id})">
-                        <i class="fas fa-cart-plus"></i> Añadir al Carrito
-                    </button>
+                    <div style="display: flex; gap: 10px; padding: 0 15px;">
+                        <button class="btn-secondary" onclick="verDetalles(${p.id})" style="flex: 1; padding: 10px 15px; font-size: 0.85rem;">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </button>
+                        <button class="btn-main" onclick="addToCart(${p.id})" style="flex: 1; padding: 10px 15px; font-size: 0.85rem;">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
                 </div>
             `).join('');
             
@@ -797,6 +984,84 @@
                 }
             } else {
                 btnContainer.style.display = 'none';
+            }
+        }
+
+        function verDetalles(id) {
+            const producto = productos.find(p => p.id === id);
+            if (!producto) return;
+            
+            const modal = document.getElementById('details-modal');
+            const modalBody = document.getElementById('details-body');
+            
+            // Construir el contenido del modal
+            let especificaciones = '';
+            if (producto.especificaciones && producto.especificaciones.length > 0) {
+                especificaciones = `
+                    <div class="details-section">
+                        <h4><i class="fas fa-list-check"></i> Especificaciones</h4>
+                        <ul>
+                            ${producto.especificaciones.map(spec => `<li>${spec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            let contenido = '';
+            if (producto.contenido && producto.contenido.length > 0) {
+                contenido = `
+                    <div class="details-section">
+                        <h4><i class="fas fa-box-open"></i> Contenido del Paquete</h4>
+                        <ul>
+                            ${producto.contenido.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            modalBody.innerHTML = `
+                <div class="details-header">
+                    <img src="${producto.img}" alt="${producto.nombre}">
+                </div>
+                <div class="details-body">
+                    <h2 class="details-title">${producto.nombre}</h2>
+                    <div class="details-price">
+                        $${producto.precio.toFixed(2)} USD
+                        <small>+ costos de envío</small>
+                    </div>
+                    
+                    <div class="details-section">
+                        <h4><i class="fas fa-align-left"></i> Descripción</h4>
+                        <p>${producto.descripcion || 'Producto de alta calidad para enviar a Cuba.'}</p>
+                    </div>
+                    
+                    ${especificaciones}
+                    ${contenido}
+                    
+                    <div class="details-actions">
+                        <button class="btn-secondary" onclick="toggleDetails()">
+                            <i class="fas fa-times"></i> Cerrar
+                        </button>
+                        <button class="btn-main" onclick="addToCart(${producto.id}); toggleDetails();">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+        
+        function toggleDetails() {
+            const modal = document.getElementById('details-modal');
+            if(modal.style.display === 'flex') {
+                modal.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    modal.style.animation = '';
+                }, 300);
+            } else {
+                modal.style.display = 'flex';
             }
         }
 
