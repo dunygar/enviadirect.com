@@ -31,7 +31,7 @@
         /* --- NAVEGACIÓN --- */
         nav {
             background: #23272a; 
-            padding: 0.5rem 5%;
+            padding: 0.8rem 5%; /* Un poco más de padding para el logo grande */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,11 +43,15 @@
 
         .logo-container { flex: 1; display: flex; align-items: center; }
         
-        /* LOGO EN BLANCO */
+        /* LOGO MÁS GRANDE */
         .logo-img { 
-            height: 80px; 
+            height: 110px; /* Aumentado de 80px a 110px */
             width: auto; 
-            filter: brightness(0) invert(1); /* Esto vuelve el logo totalmente blanco */
+            filter: brightness(0) invert(1); 
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
         .aviso-central {
@@ -62,15 +66,15 @@
             border: 1px solid rgba(208, 225, 255, 0.2);
         }
 
-        .nav-links { flex: 2.5; display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+        .nav-links { flex: 2.5; display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
         
         .nav-links a {
             text-decoration: none;
             color: var(--white) !important;
-            padding: 8px 18px;
+            padding: 10px 20px;
             border-radius: 5px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: 0.3s;
             display: flex;
             align-items: center;
@@ -194,12 +198,14 @@
 
         @media (max-width: 1100px) {
             .nav-links { gap: 5px; }
-            .nav-links a { padding: 6px 10px; font-size: 0.8rem; }
+            .nav-links a { padding: 8px 12px; font-size: 0.85rem; }
+            .logo-img { height: 80px; }
         }
 
         @media (max-width: 992px) {
             .aviso-central { display: none; }
             .hero-content h1 { font-size: 2.2rem; }
+            nav { padding: 0.5rem 5%; }
         }
     </style>
 </head>
@@ -285,7 +291,7 @@
     </section>
 
     <footer id="contacto">
-        <img src="logo.png" alt="Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; opacity: 0.8;">
+        <img src="logo.png" alt="Logo" style="height: 80px; filter: brightness(0) invert(1); margin-bottom: 20px; opacity: 0.8;">
         <p style="color: #b9bbbe;">WhatsApp: +TU_NUMERO_AQUÍ</p>
         <p>&copy; 2026 EnviaDirect - Envíos a Cuba</p>
     </footer>
