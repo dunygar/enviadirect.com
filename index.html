@@ -15,6 +15,7 @@
             --dark: #1a1a1a;
             --light: #f4f7f6;
             --white: #ffffff;
+            --success: #25d366;
         }
 
         html { scroll-behavior: smooth; }
@@ -37,24 +38,41 @@
         .logo-img { height: 80px; width: auto; }
 
         .aviso-central {
-            flex: 2;
+            flex: 1.5;
             text-align: center;
             background: #eef4ff;
             color: var(--primary);
             padding: 10px 20px;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             border: 1px solid #d0e1ff;
         }
 
-        .nav-links { flex: 1; display: flex; justify-content: flex-end; }
+        .nav-links { flex: 2; display: flex; justify-content: flex-end; align-items: center; }
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
-            margin-left: 20px;
+            margin-left: 15px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Estilo especial para el botón de seguimiento */
+        .btn-tracking {
+            background: var(--primary);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-tracking:hover {
+            background: #003d99;
+            transform: translateY(-2px);
         }
 
         /* --- HERO CON SLIDER --- */
@@ -143,7 +161,7 @@
 
         .whatsapp-float {
             position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px;
-            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
+            background-color: var(--success); color: #FFF; border-radius: 50px; text-align: center;
             font-size: 35px; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 1000;
             display: flex; align-items: center; justify-content: center; text-decoration: none;
         }
@@ -153,7 +171,7 @@
         @media (max-width: 992px) {
             .aviso-central { display: none; }
             .hero-content h1 { font-size: 2.2rem; }
-            .hero-content p { font-size: 1.2rem; }
+            .nav-links a { margin-left: 10px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -169,6 +187,9 @@
         <div class="nav-links">
             <a href="#">Inicio</a>
             <a href="#productos">Productos</a>
+            <a href="https://www.solvebigtech.com/solvedc/tracking/dayready/" target="_blank" class="btn-tracking">
+                <i class="fas fa-search-location"></i> Seguimiento
+            </a>
             <a href="#contacto">Contacto</a>
         </div>
     </nav>
