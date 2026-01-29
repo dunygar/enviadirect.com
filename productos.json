@@ -6,22 +6,13 @@
     "img": "img/1.png",
     "descripcion": "Sumry 4000w inversor solar 140A 5600W MPPT cargador solar híbrido inversor de onda sinusoidal pura para el hogar pantalla LCD de 6,25 pulgadas.",
     "especificaciones": [
-      "inversor solar fuera de la red",
-      "No hay función de batería disponible",
-      "modos SBU: energía de utilidad, batería y energía fotovoltaica se complementan entre sí",
-      "Solar inverter de onda sinusoidal pura",
-      "Diseño exclusivo de cubierta superior de vidrio con pantalla LCD de 6,25 pulgadas y botones táctiles",
-      "Cargador solar incorporado de 140 A MPPT (máx. PV 5600 W)",
-      "Alto rango de entrada fotovoltaica de 55 V-350 V CC",
-      "Diseño de cargador de batería inteligente para un rendimiento optimizado de la batería",
-      "Prioridad de entrada de batería/CA configurable a través de la configuración LCD",
-      "Reinicio automático mientras se recupera el fotovoltaico",
-      "Protección contra sobrecarga, sobretemperatura y cortocircuito de salida",
-      "Función de reinicio en frío",
-      "Activación automática de batería de litio incorporada",
-      "Comunicación con RS232/RS485",
-      "funciones de monitoreo WiFi (opcional)",
-      "Restaurar la configuración predeterminada con un solo clic"
+      "Modelo HGX Series (Híbrido)",
+      "Potencia de salida: 4000W",
+      "Voltaje: 24V / 120VAC",
+      "Corriente de carga máxima: 110A",
+      "Rango de voltaje de entrada: 100/110/120VAC",
+      "Frecuencia: 50/60Hz.",
+      "Nota: Puede funcionar sin batería"
     ],
     "contenido": [
       "Inversor",
@@ -35,17 +26,13 @@
     "img": "img/2.png",
     "descripcion": "Sumry 3.6kw inversor solar híbrido 110/120v 24v salida dual con MPPT 120A 60-450v 50/60hz inversor doméstico onda sinusoidal pura",
     "especificaciones": [
-      "inversor solar de onda sinusoidal pura (red de encendido/apagado)",
-      "Factor de potencia de salida 1.0",
-      "WIF1 y GPRS disponibles paralo y Androide",
-      "El inversor puede funcionar sin batería",
-      "Restauración con una sola tecla a la configuración de fábrica",
-      "Activación automática de la batería de litio incorporada",
-      "Tensión de salida CA 120 VCA",
-      "Carga solar incorporada de 120 AMPPT: máximo 4200 W (para 3,6 kW)",
-      "Rango de voltaje de entrada fotovoltaica alto (60 ~ 500 VCC)",
-      "Kit antipolvo incorporado para entornos hostiles",
-      "Diseño de carga de batería inteligente para optimizar la duración de la batería",
+      "Inversor Solar SUMRY (Serie NM-ECO-LV)",
+      "Potencia y Voltaje: Salida de 3.6KW a 120VAC (24V).",
+      "Carga Solar: Corriente de carga solar máxima de 120A.",
+      "Entrada PV: Potencia máxima de entrada fotovoltaica de 4.2KW.",
+      "Rango MPPT: Voltaje de operación entre 60-450VDC.",
+      "Frecuencia: Rango de 50Hz/60Hz.",
+      "Otras características: Onda senoidal pura y certificaciones CE, RoHS y FC.",
       "Salida dual"
     ],
     "contenido": [
@@ -60,9 +47,13 @@
     "img": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
     "descripcion": "Dumfume 12.8 V 300Ah Lifepo4 batería de litio 3840w, batería para Solar RV.",
     "especificaciones": [
-      "Mayor densidad de energía y rendimiento estable: la batería DUMFUME 12.8V 300Ah LiFePO4 ofrece 3,84 kWh de energía, equivalente a tres baterías de 12V 100Ah. Garantizando una salida de energía estable, lo que ahorra tiempo y costos en el cableado y al mismo tiempo proporciona tiempos de ciclo más largos y una protección mejorada de la batería",
-      "Celdas Grado A para una protección confiable: Batería DUMFUME LiFePO4 equipada con un sistema de gestión de batería de 300 A, esta batería protege contra sobrecarga, sobredescarga y cortocircuitos.Proporciona potencia continua de hasta 3840 W, lo que garantiza longevidad y funcionamiento seguro para diversas aplicaciones.",
-      "Vida útil más larga y diseño liviano: batería de litio DUMFUME 12.8V 300Ah LiFePO4 Con un peso de solo 60 libras, esta batería LiFePO4 es un tercio del peso de las baterías de plomo-ácido tradicionales.Su vida útil de 10 años y más de 15000 ciclos profundos con 100% DOD lo convierten en una solución de energía confiable y portátil para aplicaciones tanto en interiores como en exteriores."
+      "Marca: DUMFUME",
+      "Química: LiFePO4 (Litio-Ferrofosfato), conocida por su seguridad y larga vida útil.",
+      "Voltaje Nominal: 12.8V.",
+      "Capacidad: 300Ah.",
+      "Alta Durabilidad: Diseñada para ciclos de vida extensos.",
+      "Capacidad de Almacenamiento: Optimizada para alta densidad energética.",
+      "Compatibilidad: Totalmente funcional con plantas eléctricas y sistemas solares."
     ],
     "contenido": [
       "Bateria",
@@ -72,70 +63,70 @@
   },
   {
     "id": 4,
-    "nombre": "Combo de Higiene Personal",
+    "nombre": "Breaker DC 1000v",
     "precio": 65.00,
-    "img": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600",
-    "descripcion": "Productos de higiene y cuidado personal de marcas reconocidas para toda la familia. Todo lo necesario para el cuidado diario.",
+    "img": "img/4.png",
+    "descripcion": "Mini interruptor de protección contra sobrecarga de disyuntor Solar DC 1000V 2P DC1000V MCB fotovoltaico PV.",
     "especificaciones": [
-      "Peso total: 15 libras aproximadamente",
-      "Productos de marcas reconocidas",
-      "Embalaje seguro anti-derrames",
-      "Ideal para 2-3 meses de uso"
+      "Modelo: Serie EACBDC-63",
+      "Voltaje Nominal (Ue​): 1000V DC",
+      "Corriente Nominal (In​): Disponible en un rango desde 6A hasta 63A (6, 10, 16, 20, 25, 32, 40, 50, 63A)",
+      "Número de Polos: 2P (Bipolar)",
+      "Capacidad de Ruptura: 4500A (Icn​)",
+      "Curva de Disparo: Tipo C",
+      "Certificaciones: CE, IEC60898, GB10963",
+      "Funciones de Protección: * Protección contra sobrecargas",
+      "Protección contra cortocircuitos",
+      "Aislamiento de seguridad"	
     ],
     "contenido": [
-      "Champú y acondicionador (3 unidades c/u)",
-      "Jabón de baño (6 unidades)",
-      "Pasta dental (4 tubos)",
-      "Cepillos de dientes (6 unidades)",
-      "Desodorante (4 unidades)",
-      "Papel higiénico (12 rollos)",
-      "Toallas sanitarias",
-      "Crema de afeitar y rastrillos"
+      "Breaker DC"
     ]
   },
   {
     "id": 5,
-    "nombre": "Pack de Alimentos Básicos",
+    "nombre": "",
     "precio": 80.00,
-    "img": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600",
-    "descripcion": "Alimentos esenciales de despensa con larga duración. La base perfecta para la alimentación familiar durante varias semanas.",
+    "img": "img/5.png",
+    "descripcion": "",
     "especificaciones": [
-      "Peso total: 40 libras aproximadamente",
-      "Productos no perecederos",
-      "Fecha de vencimiento mínima: 12 meses",
-      "Embalaje resistente"
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
     "contenido": [
-      "15 lbs de arroz blanco",
-      "8 lbs de azúcar",
-      "5 lbs de harina de trigo",
-      "4 lbs de aceite vegetal",
-      "3 lbs de sal y especias",
-      "2 lbs de café",
-      "Enlatados variados (8 latas)"
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ]
   },
   {
     "id": 6,
-    "nombre": "Kit Infantil Completo",
+    "nombre": "",
     "precio": 70.00,
-    "img": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600",
-    "descripcion": "Todo lo que los más pequeños necesitan: ropa, juguetes, productos de higiene y alimentos especiales. Diseñado con mucho amor.",
+    "img": "img/6.png",
+    "descripcion": "",
     "especificaciones": [
-      "Peso total: 18 libras aproximadamente",
-      "Productos para niños de 0-5 años",
-      "Ropa tallas variadas disponibles",
-      "Juguetes educativos incluidos"
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
     "contenido": [
-      "Ropa infantil (5 piezas)",
-      "Pañales desechables (50 unidades)",
-      "Toallitas húmedas (4 paquetes)",
-      "Juguetes educativos (3 unidades)",
-      "Leche en polvo (2 latas)",
-      "Alimentos para bebé (6 frascos)",
-      "Champú y jabón para bebé",
-      "Útiles escolares básicos"
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ]
   }
 ]
