@@ -64,7 +64,7 @@
   {
     "id": 4,
     "nombre": "Breaker DC 1000v",
-    "precio": 65.00,
+    "precio": 15.00,
     "img": "img/4.png",
     "descripcion": "Mini interruptor de protección contra sobrecarga de disyuntor Solar DC 1000V 2P DC1000V MCB fotovoltaico PV.",
     "especificaciones": [
@@ -86,7 +86,7 @@
   {
     "id": 5,
     "nombre": "",
-    "precio": 80.00,
+    "precio": 0.00,
     "img": "img/5.png",
     "descripcion": "",
     "especificaciones": [
@@ -109,7 +109,7 @@
   {
     "id": 6,
     "nombre": "",
-    "precio": 70.00,
+    "precio": 0.00,
     "img": "img/6.png",
     "descripcion": "",
     "especificaciones": [
