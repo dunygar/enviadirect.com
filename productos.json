@@ -3,7 +3,7 @@
     "id": 1,
     "nombre": "Inversor Hibrido Sumry 4kw",
     "precio": 440.00,
-    "img": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
+    "img": "img/1.png",
     "descripcion": "Sumry 4000w inversor solar 140A 5600W MPPT cargador solar híbrido inversor de onda sinusoidal pura para el hogar pantalla LCD de 6,25 pulgadas.",
     "especificaciones": [
       "inversor solar fuera de la red",
@@ -32,7 +32,7 @@
     "id": 2,
     "nombre": "Inversor Hibrido Sumry 3.6kw",
     "precio": 400.00,
-    "img": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
+    "img": "img/2.png",
     "descripcion": "Sumry 3.6kw inversor solar híbrido 110/120v 24v salida dual con MPPT 120A 60-450v 50/60hz inversor doméstico onda sinusoidal pura",
     "especificaciones": [
       "inversor solar de onda sinusoidal pura (red de encendido/apagado)",
