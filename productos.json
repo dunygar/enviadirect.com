@@ -1,55 +1,140 @@
 [
   {
-    "id": 1,
+        "id": 1,
     "nombre": "Inversor Hibrido Sumry 4kwr",
     "precio": 440.00,
     "img": "img/combo-familiar.jpg",
     "descripcion": "Sumry 4000w inversor solar 140A 5600W MPPT cargador solar híbrido inversor de onda sinusoidal pura para el hogar pantalla LCD de 6,25 pulgadas",
     "especificaciones": [
-"inversor solar fuera de la red"
-"No hay función de batería disponible"
-"modos SBU: energía de utilidad, batería y energía fotovoltaica se complementan entre sí"
-"Solarinverter de onda sinusoidal pura"
-"Diseño exclusivo de cubierta superior de vidrio con pantalla LCD de 6,25 pulgadas y botones táctiles"
-"Cargador solar incorporado de 140 A MPPT (máx. PV 5600 W)."
-"Alto rango de entrada fotovoltaica de 55 V-350 V CC"
-"Diseño de cargador de batería inteligente para un rendimiento optimizado de la batería"
-"Prioridad de entrada de batería/CA configurable a través de la configuración LCD"
-"Reinicio automático mientras se recupera el fotovoltaico"
-"Protección contra sobrecarga, sobretemperatura y cortocircuito de salida"
-"Función de reinicio en frío"
-"Activación automática de batería de litio incorporada"
-"Comunicación con RS232/RS485"
-"funciones de monitoreo WiFi (opcional)"
-"Kit antipolvo para ambientes hostiles (opcional)"
-"Restaurar la configuración predeterminada con un solo clic"
-
-    ],
-    "contenido": [
-      "5 lbs de arroz premium",
-      "3 lbs de frijoles negros",
-      "2 lbs de aceite vegetal",
-      "1 lb de café cubano",
-      "Pasta italiana (3 paquetes)",
-      "Salsa de tomate (4 unidades)",
-      "Productos de limpieza básicos"
+    "inversor solar fuera de la red"
+    "No hay función de batería disponible"
+    "modos SBU: energía de utilidad, batería y energía fotovoltaica se complementan entre sí"
+    "Solarinverter de onda sinusoidal pura"
+    "Diseño exclusivo de cubierta superior de vidrio con pantalla LCD de 6,25 pulgadas y botones táctiles"
+    "Cargador solar incorporado de 140 A MPPT (máx. PV 5600 W)."
+    "Alto rango de entrada fotovoltaica de 55 V-350 V CC"
+    "Diseño de cargador de batería inteligente para un rendimiento optimizado de la batería"
+    "Prioridad de entrada de batería/CA configurable a través de la configuración LCD"
+    "Reinicio automático mientras se recupera el fotovoltaico"
+    "Protección contra sobrecarga, sobretemperatura y cortocircuito de salida"
+    "Función de reinicio en frío"
+    "Activación automática de batería de litio incorporada"
+    "Comunicación con RS232/RS485"
+    "funciones de monitoreo WiFi (opcional)"
+    "Kit antipolvo para ambientes hostiles (opcional)"
+    "Restaurar la configuración predeterminada con un solo clic"
     ]
   },
-{
+  {
     "id": 2,
-    "nombre": "Nombre del Producto Aquí",
-    "precio": 0.00,
-    "img": "img/combo-familiar.jpg",
-    "descripcion": "Escribe aquí una descripción atractiva para tus clientes.",
+    "nombre": "Kit de Salud Prioritario",
+    "precio": 45.00,
+    "img": "img/kit-salud.jpg",
+    "descripcion": "Medicamentos y productos esenciales para el cuidado de la salud. Enviamos con prioridad para garantizar condiciones óptimas.",
     "especificaciones": [
-      "Especificación 1",
-      "Especificación 2",
-      "Especificación 3"
+      "Peso total: 8 libras aproximadamente",
+      "Envío prioritario con seguimiento",
+      "Empaque especial para medicamentos",
+      "Certificado de productos autorizados"
     ],
     "contenido": [
-      "Elemento 1",
-      "Elemento 2",
-      "Elemento 3"
+      "Analgésicos (Paracetamol, Ibuprofeno)",
+      "Vitaminas multivitamínicas",
+      "Antibióticos básicos",
+      "Productos de primeros auxilios",
+      "Termómetro digital",
+      "Vendas y gasas",
+      "Alcohol y desinfectantes"
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Pack Cárnico Especial",
+    "precio": 110.00,
+    "img": "img/pack-carnico.jpg",
+    "descripcion": "Selección premium de carnes y embutidos de la más alta calidad. Perfecto para completar la despensa familiar.",
+    "especificaciones": [
+      "Peso total: 30 libras aproximadamente",
+      "Productos refrigerados durante el envío",
+      "Empaque térmico especializado",
+      "Garantía de frescura al 100%"
+    ],
+    "contenido": [
+      "10 lbs de pollo entero",
+      "5 lbs de carne de res",
+      "3 lbs de chorizo español",
+      "3 lbs de jamón enlatado",
+      "4 lbs de salchichas variadas",
+      "2 lbs de tocino ahumado",
+      "3 lbs de carne molida"
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Combo de Higiene Personal",
+    "precio": 65.00,
+    "img": "img/higiene.jpg",
+    "descripcion": "Productos de higiene y cuidado personal de marcas reconocidas para toda la familia.",
+    "especificaciones": [
+      "Peso total: 15 libras aproximadamente",
+      "Productos de marcas reconocidas",
+      "Embalaje seguro anti-derrames",
+      "Ideal para 2-3 meses de uso"
+    ],
+    "contenido": [
+      "Champú y acondicionador (3 unidades c/u)",
+      "Jabón de baño (6 unidades)",
+      "Pasta dental (4 tubos)",
+      "Cepillos de dientes (6 unidades)",
+      "Desodorante (4 unidades)",
+      "Papel higiénico (12 rollos)",
+      "Toallas sanitarias",
+      "Crema de afeitar y rastrillos"
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Pack de Alimentos Básicos",
+    "precio": 80.00,
+    "img": "img/alimentos-basicos.jpg",
+    "descripcion": "Alimentos esenciales de despensa con larga duración. La base perfecta para la alimentación familiar.",
+    "especificaciones": [
+      "Peso total: 40 libras aproximadamente",
+      "Productos no perecederos",
+      "Fecha de vencimiento mínima: 12 meses",
+      "Embalaje resistente"
+    ],
+    "contenido": [
+      "15 lbs de arroz blanco",
+      "8 lbs de azúcar",
+      "5 lbs de harina de trigo",
+      "4 lbs de aceite vegetal",
+      "3 lbs de sal y especias",
+      "2 lbs de café",
+      "Enlatados variados (8 latas)"
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Kit Infantil Completo",
+    "precio": 70.00,
+    "img": "img/kit-infantil.jpg",
+    "descripcion": "Todo lo que los más pequeños necesitan: ropa, juguetes, productos de higiene y alimentos especiales.",
+    "especificaciones": [
+      "Peso total: 18 libras aproximadamente",
+      "Productos para niños de 0-5 años",
+      "Ropa tallas variadas disponibles",
+      "Juguetes educativos incluidos"
+    ],
+    "contenido": [
+      "Ropa infantil (5 piezas)",
+      "Pañales desechables (50 unidades)",
+      "Toallitas húmedas (4 paquetes)",
+      "Juguetes educativos (3 unidades)",
+      "Leche en polvo (2 latas)",
+      "Alimentos para bebé (6 frascos)",
+      "Champú y jabón para bebé",
+      "Útiles escolares básicos"
     ]
   }
 ]
