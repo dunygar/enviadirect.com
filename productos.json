@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "nombre": "Hibrido",
+    "nombre": "Combo Familiar Súper",
     "precio": 95.00,
-    "img": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
-    "descripcion": "Paquetadasdasdasdr amor y cuidado a tus seres queridos en Cuba.",
+    "img": "img/combo-familiar.jpg",
+    "descripcion": "Paquete completo diseñado para toda la familia con productos esenciales de alta calidad. Ideal para enviar amor y cuidado a tus seres queridos en Cuba.",
     "especificaciones": [
       "Peso total: 25 libras aproximadamente",
       "Tiempo de entrega: 7-10 días hábiles",
@@ -21,116 +21,20 @@
       "Productos de limpieza básicos"
     ]
   },
-  {
+{
     "id": 2,
-    "nombre": "Kit de Salud Prioritario",
-    "precio": 45.00,
-    "img": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
-    "descripcion": "Medicamentos y productos esenciales para el cuidado de la salud. Enviamos con prioridad para garantizar que lleguen en perfectas condiciones.",
+    "nombre": "Nombre del Producto Aquí",
+    "precio": 0.00,
+    "img": "img/combo-familiar.jpg",
+    "descripcion": "Escribe aquí una descripción atractiva para tus clientes.",
     "especificaciones": [
-      "Peso total: 8 libras aproximadamente",
-      "Envío prioritario con seguimiento",
-      "Empaque especial para medicamentos",
-      "Certificado de productos autorizados"
+      "Especificación 1",
+      "Especificación 2",
+      "Especificación 3"
     ],
     "contenido": [
-      "Analgésicos (Paracetamol, Ibuprofeno)",
-      "Vitaminas multivitamínicas",
-      "Antibióticos básicos",
-      "Productos de primeros auxilios",
-      "Termómetro digital",
-      "Vendas y gasas",
-      "Alcohol y desinfectantes"
-    ]
-  },
-  {
-    "id": 3,
-    "nombre": "Pack Cárnico Especial",
-    "precio": 110.00,
-    "img": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
-    "descripcion": "Selección premium de carnes y embutidos de la más alta calidad. Perfecto para ocasiones especiales o para completar la despensa familiar.",
-    "especificaciones": [
-      "Peso total: 30 libras aproximadamente",
-      "Productos refrigerados durante el envío",
-      "Empaque térmico especializado",
-      "Garantía de frescura al 100%"
-    ],
-    "contenido": [
-      "10 lbs de pollo entero",
-      "5 lbs de carne de res",
-      "3 lbs de chorizo español",
-      "3 lbs de jamón enlatado",
-      "4 lbs de salchichas variadas",
-      "2 lbs de tocino ahumado",
-      "3 lbs de carne molida"
-    ]
-  },
-  {
-    "id": 4,
-    "nombre": "Combo de Higiene Personal",
-    "precio": 65.00,
-    "img": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600",
-    "descripcion": "Productos de higiene y cuidado personal de marcas reconocidas para toda la familia. Todo lo necesario para el cuidado diario.",
-    "especificaciones": [
-      "Peso total: 15 libras aproximadamente",
-      "Productos de marcas reconocidas",
-      "Embalaje seguro anti-derrames",
-      "Ideal para 2-3 meses de uso"
-    ],
-    "contenido": [
-      "Champú y acondicionador (3 unidades c/u)",
-      "Jabón de baño (6 unidades)",
-      "Pasta dental (4 tubos)",
-      "Cepillos de dientes (6 unidades)",
-      "Desodorante (4 unidades)",
-      "Papel higiénico (12 rollos)",
-      "Toallas sanitarias",
-      "Crema de afeitar y rastrillos"
-    ]
-  },
-  {
-    "id": 5,
-    "nombre": "Pack de Alimentos Básicos",
-    "precio": 80.00,
-    "img": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600",
-    "descripcion": "Alimentos esenciales de despensa con larga duración. La base perfecta para la alimentación familiar durante varias semanas.",
-    "especificaciones": [
-      "Peso total: 40 libras aproximadamente",
-      "Productos no perecederos",
-      "Fecha de vencimiento mínima: 12 meses",
-      "Embalaje resistente"
-    ],
-    "contenido": [
-      "15 lbs de arroz blanco",
-      "8 lbs de azúcar",
-      "5 lbs de harina de trigo",
-      "4 lbs de aceite vegetal",
-      "3 lbs de sal y especias",
-      "2 lbs de café",
-      "Enlatados variados (8 latas)"
-    ]
-  },
-  {
-    "id": 6,
-    "nombre": "Kit Infantil Completo",
-    "precio": 70.00,
-    "img": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600",
-    "descripcion": "Todo lo que los más pequeños necesitan: ropa, juguetes, productos de higiene y alimentos especiales. Diseñado con mucho amor.",
-    "especificaciones": [
-      "Peso total: 18 libras aproximadamente",
-      "Productos para niños de 0-5 años",
-      "Ropa tallas variadas disponibles",
-      "Juguetes educativos incluidos"
-    ],
-    "contenido": [
-      "Ropa infantil (5 piezas)",
-      "Pañales desechables (50 unidades)",
-      "Toallitas húmedas (4 paquetes)",
-      "Juguetes educativos (3 unidades)",
-      "Leche en polvo (2 latas)",
-      "Alimentos para bebé (6 frascos)",
-      "Champú y jabón para bebé",
-      "Útiles escolares básicos"
+      "Elemento 1",
+      "Elemento 2",
+      "Elemento 3"
     ]
   }
-]
