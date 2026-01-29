@@ -106,6 +106,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            z-index: 1; /* Asegura que el contenido esté sobre el efecto */
         }
         
         .nav-links a::before, .cart-btn::before {
@@ -116,14 +117,21 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
+            z-index: -1; /* Envía el efecto detrás del texto */
         }
         
         .nav-links a:hover::before, .cart-btn:hover::before {
             width: 300px;
             height: 300px;
+        }
+
+        /* EFECTO DE ILUMINACIÓN AL PASAR EL MOUSE */
+        .nav-links a:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         .btn-inicio { background: #3a3e44; }
@@ -137,8 +145,8 @@
         }
         
         @keyframes cartGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(204, 255, 0, 0.4); }
-            50% { box-shadow: 0 0 30px rgba(204, 255, 0, 0.6); }
+            0%, 100% { box-shadow: 0 0 10px rgba(204, 255, 0, 0.4), inset 0 0 5px rgba(255,255,255,0.5); }
+            50% { box-shadow: 0 0 25px rgba(204, 255, 0, 0.8), inset 0 0 10px rgba(255,255,255,0.8); }
         }
         
         .cart-count {
@@ -151,6 +159,7 @@
             padding: 3px 7px; 
             font-size: 0.7rem; 
             font-weight: 700;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
         /* --- HERO --- */
@@ -226,9 +235,12 @@
         .btn-main { 
             background: linear-gradient(135deg, var(--secondary), #ff7700);
             color: white; padding: 12px 28px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer;
+            transition: 0.3s;
         }
+        .btn-main:hover { filter: brightness(1.2); box-shadow: 0 0 15px rgba(255, 153, 0, 0.4); }
 
-        .btn-secondary { background: #4a4f55; color: white; padding: 12px 28px; border-radius: 50px; border: none; cursor: pointer; }
+        .btn-secondary { background: #4a4f55; color: white; padding: 12px 28px; border-radius: 50px; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-secondary:hover { background: #5a5f66; }
 
         /* --- MODALES --- */
         #cart-modal, #details-modal {
@@ -250,6 +262,7 @@
             position: fixed; width: 60px; height: 60px; bottom: 25px; right: 25px;
             background: var(--success); color: #FFF; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -354,7 +367,6 @@
                 const response = await fetch('productos.json');
                 productos = await response.json();
             } catch (e) {
-                // Fallback si no hay JSON
                 productos = [
                     { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600", descripcion: "Paquete completo esencial.", contenido: ["Arroz", "Frijoles", "Aceite"] },
                     { id: 2, nombre: "Kit de Salud", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600", descripcion: "Medicamentos básicos.", contenido: ["Vitaminas", "Analgésicos"] },
@@ -407,41 +419,4 @@
             document.getElementById('cart-total').innerText = total.toFixed(2);
         }
 
-        function removeItem(i) { carrito.splice(i, 1); document.getElementById('cart-count').innerText = carrito.length; updateCartUI(); }
-
-        function toggleCart() {
-            const m = document.getElementById('cart-modal');
-            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function verDetalles(id) {
-            const p = productos.find(x => x.id === id);
-            const body = document.getElementById('details-body');
-            body.innerHTML = `
-                <h2 style="color:white">${p.nombre}</h2>
-                <img src="${p.img}" style="width:100%; border-radius:15px; margin-bottom:15px">
-                <p style="color:#ccc">${p.descripcion}</p>
-                <ul style="color:#aaa">${p.contenido.map(c => `<li>${c}</li>`).join('')}</ul>
-                <button class="btn-main" style="width:100%" onclick="addToCart(${p.id}); document.getElementById('details-modal').style.display='none'">Añadir al Carrito</button>
-                <button onclick="document.getElementById('details-modal').style.display='none'" style="background:none; border:none; color:white; width:100%; margin-top:10px; cursor:pointer">Volver</button>
-            `;
-            document.getElementById('details-modal').style.display = 'flex';
-        }
-
-        function sendWhatsApp() {
-            if (carrito.length === 0) return alert("El carrito está vacío");
-            let msg = "Hola EnviaDirect, quiero pedir:\n" + carrito.map(p => `- ${p.nombre} ($${p.precio})`).join('\n');
-            window.open(`https://wa.me/13054845668?text=${encodeURIComponent(msg)}`);
-        }
-
-        // Slider automático
-        let currentSlide = 0;
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % 3;
-            document.getElementById('slider').style.transform = `translateX(-${currentSlide * 33.333}%)`;
-        }, 5000);
-
-        cargarProductos();
-    </script>
-</body>
-</html>
+        function removeItem(i) { carrito.splice(i, 1); document.getElementById('
