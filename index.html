@@ -3,445 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnviaDirect | Envíos Directos y Seguros a Cuba</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <title>Mi Sitio Web en GitHub</title>
     <style>
-        :root {
-            --primary: #0052cc;
-            --secondary: #ff9900;
-            --dark-bg: #1a1c1e; 
-            --card-bg: #2d3136; 
-            --light-text: #f4f7f6;
-            --white: #ffffff;
-            --success: #25d366;
-            --cart-highlight: #ccff00;
+        /* Estilos básicos para que se vea bien desde el principio */
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #ffffff;
         }
-
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            margin: 0; 
-            background: var(--dark-bg); 
-            color: var(--light-text); 
-            overflow-x: hidden; 
-        }
-
-        /* --- NAVEGACIÓN --- */
-        nav {
-            background: #121416; 
-            padding: 0.6rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            flex-wrap: wrap;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo-container { 
-            flex: 1; 
-            display: flex; 
-            align-items: center; 
-            min-width: 150px; 
-        }
-        
-        .logo-img { 
-            height: 100px; 
-            width: auto; 
-            filter: brightness(0) invert(1); 
-            transition: all 0.3s ease;
-        }
-        
-        .logo-img:hover {
-            transform: scale(1.05);
-            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-        }
-
-        .aviso-central {
-            flex: 1.2;
+        header {
+            background-color: #f8f9fa;
+            padding: 2rem;
             text-align: center;
-            background: rgba(0, 82, 204, 0.15);
-            color: #8db5ff;
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(208, 225, 255, 0.1);
-            margin: 0 10px;
-            animation: pulse 3s ease-in-out infinite;
+            border-bottom: 1px solid #ddd;
         }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        .nav-links { 
-            flex: 2.5; 
-            display: flex; 
-            justify-content: flex-end; 
-            align-items: center; 
-            gap: 8px; 
-            flex-wrap: wrap; 
-        }
-        
-        .nav-links a, .cart-btn {
-            text-decoration: none;
-            color: var(--white) !important;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .nav-links a::before, .cart-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .nav-links a:hover::before, .cart-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-inicio { background: #3a3e44; }
-        .btn-tracking { background: var(--primary); }
-        .btn-contacto { background: #4a4f55; }
-        
-        .cart-btn { 
-            background: var(--cart-highlight); 
-            color: #000 !important; 
-            animation: cartGlow 2s ease-in-out infinite;
-        }
-        
-        @keyframes cartGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(204, 255, 0, 0.4); }
-            50% { box-shadow: 0 0 30px rgba(204, 255, 0, 0.6); }
-        }
-        
-        .cart-count {
-            position: absolute; 
-            top: -5px; 
-            right: -5px;
-            background: #ff0000; 
-            color: white; 
-            border-radius: 50%;
-            padding: 3px 7px; 
-            font-size: 0.7rem; 
-            font-weight: 700;
-        }
-
-        /* --- HERO --- */
-        .hero-container {
-            position: relative; 
-            width: 100%; 
-            height: 500px;
-            overflow: hidden; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-        }
-
-        .slider {
-            display: flex; 
-            width: 300%; 
-            height: 100%; 
-            position: absolute;
-            transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-
-        .slide { 
-            width: 33.333%; 
-            height: 100%; 
-            background-size: cover; 
-            background-position: center; 
-            position: relative; 
-        }
-        
-        .slide::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 82, 204, 0.3)); 
-        }
-
-        .hero-content { position: relative; z-index: 10; text-align: center; color: var(--white); }
-        .hero-content h1 { font-size: 3rem; text-shadow: 3px 3px 15px rgba(0,0,0,0.9); }
-
-        /* --- CONFIANZA --- */
-        .confianza {
-            padding: 60px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            background: linear-gradient(180deg, #1a1c1e 0%, #23272a 100%);
-        }
-
-        .confianza-card {
-            background: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 20px;
+        footer {
             text-align: center;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .icon-box {
-            width: 80px; height: 80px;
-            background: rgba(0, 82, 204, 0.1);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px; color: var(--primary); font-size: 32px;
-        }
-
-        /* --- PRODUCTOS --- */
-        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
-        .product-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; text-align: center; padding-bottom: 25px; transition: 0.4s; }
-        .product-card:hover { transform: translateY(-10px); border-color: var(--secondary); }
-        .product-card img { width: 100%; height: 220px; object-fit: cover; }
-
-        .btn-main { 
-            background: linear-gradient(135deg, var(--secondary), #ff7700);
-            color: white; padding: 12px 28px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer;
-        }
-
-        .btn-secondary { background: #4a4f55; color: white; padding: 12px 28px; border-radius: 50px; border: none; cursor: pointer; }
-
-        /* --- MODALES --- */
-        #cart-modal, #details-modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px);
-        }
-        
-        .modal-content, .details-modal-content {
-            background: var(--card-bg); padding: 30px; border-radius: 25px; width: 90%; max-width: 500px;
-            border: 2px solid var(--primary);
-        }
-
-        /* --- FOOTER --- */
-        footer { background: #121416; color: #72767d; text-align: center; padding: 50px 5%; border-top: 1px solid rgba(255, 255, 255, 0.05); }
-        .footer-contact { display: flex; justify-content: center; gap: 30px; margin: 25px 0; flex-wrap: wrap; }
-        .footer-contact a { color: var(--white); text-decoration: none; }
-
-        .whatsapp-float {
-            position: fixed; width: 60px; height: 60px; bottom: 25px; right: 25px;
-            background: var(--success); color: #FFF; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;
-        }
-
-        @media (max-width: 768px) {
-            .aviso-central { display: none; }
-            .nav-links a, .cart-btn { width: 48%; margin-bottom: 5px; }
+            padding: 1rem;
+            background: #eee;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo-container">
-            <img src="logo.png" alt="EnviaDirect Logo" class="logo-img">
-        </a>
-        <div class="aviso-central">
-            <i class="fas fa-truck-fast"></i> Envíos a Cuba con seguridad garantizada.
-        </div>
-        <div class="nav-links">
-            <a href="#" class="btn-inicio"><i class="fas fa-home"></i> Inicio</a>
-            <button class="cart-btn" onclick="toggleCart()">
-                <i class="fas fa-shopping-cart"></i> Carrito
-                <span class="cart-count" id="cart-count">0</span>
-            </button>
-            <a href="https://www.solvebigtech.com/solvedc/tracking/dayready/" target="_blank" class="btn-tracking"><i class="fas fa-route"></i> Rastreo</a>
-            <a href="#contacto" class="btn-contacto"><i class="fas fa-headset"></i> Ayuda</a>
-        </div>
-    </nav>
+    <header>
+        <h1>Mi Proyecto Web</h1>
+        <p>Esta página está en construcción paso a paso.</p>
+    </header>
 
-    <div class="hero-container">
-        <div class="slider" id="slider">
-            <div class="slide" style="background-image: url('aereo.png');"></div>
-            <div class="slide" style="background-image: url('maritimo.png');"></div>
-            <div class="slide" style="background-image: url('terrestre.png');"></div>
-        </div>
-        <div class="hero-content">
-            <h1 id="hero-title">Tu familia en Cuba más cerca que nunca</h1>
-            <p id="hero-desc">Envíos aéreos rápidos y seguros desde solo $3.49 USD la libra.</p>
-            <a href="#productos" class="btn-main" style="margin-top: 20px; display: inline-block;"><i class="fas fa-arrow-down"></i> Ver Productos</a>
-        </div>
-    </div>
+    <main id="contenido-principal">
+        <h2>Inicio</h2>
+        <p>Aquí es donde empezaremos a añadir todo lo que me pidas.</p>
+    </main>
 
-    <div class="confianza">
-        <div class="confianza-card">
-            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
-            <h4>Pago Seguro</h4>
-            <p>Aceptamos múltiples métodos de pago con total transparencia.</p>
-        </div>
-        <div class="confianza-card">
-            <div class="icon-box"><i class="fas fa-shipping-fast"></i></div>
-            <h4>Entrega Garantizada</h4>
-            <p>Monitoreamos cada paquete hasta la puerta de tu familia.</p>
-        </div>
-        <div class="confianza-card">
-            <div class="icon-box"><i class="fas fa-comments"></i></div>
-            <h4>Soporte 24/7</h4>
-            <p>Equipo disponible vía WhatsApp para asistirte.</p>
-        </div>
-    </div>
-
-    <section id="productos">
-        <h2 style="text-align: center; margin-bottom: 50px; color: var(--white); font-size: 2.2rem;">Productos Populares</h2>
-        <div class="product-grid" id="product-container"></div>
-        <div id="toggle-btn-container" style="text-align: center; margin-top: 40px; display: none;">
-            <button id="toggle-products-btn" class="btn-main" onclick="toggleProducts()">
-                <i class="fas fa-chevron-down"></i> Ver Más Productos
-            </button>
-        </div>
-    </section>
-
-    <div id="cart-modal">
-        <div class="modal-content">
-            <h2 style="color:white; margin-top:0">Tu Pedido</h2>
-            <div id="cart-items" style="color: #ccc; max-height: 300px; overflow-y: auto;"></div>
-            <div style="font-size:1.4rem; font-weight:700; text-align:right; margin:25px 0; color: var(--secondary)">Total: $<span id="cart-total">0.00</span></div>
-            <button class="btn-main" style="width:100%; background: var(--success);" onclick="sendWhatsApp()">Pedir por WhatsApp</button>
-            <button onclick="toggleCart()" style="background:none; border:none; color:#999; width:100%; margin-top:15px; cursor:pointer;">Cerrar</button>
-        </div>
-    </div>
-
-    <div id="details-modal">
-        <div class="details-modal-content" id="details-body"></div>
-    </div>
-
-    <footer id="contacto">
-        <div class="footer-contact">
-            <div><i class="fas fa-phone-alt"></i> <a href="tel:+13057359953">+1 (305) 735-9953</a></div>
-            <div><i class="fab fa-whatsapp"></i> <a href="https://wa.me/13054845668">+1 (305) 484-5668</a></div>
-            <div><i class="fas fa-envelope"></i> <a href="mailto:info@enviadirect.com">info@enviadirect.com</a></div>
-        </div>
-        <p>&copy; 2026 EnviaDirect - Todos los derechos reservados.</p>
+    <footer>
+        <p>&copy; 2026 - Mi Web en GitHub</p>
     </footer>
 
-    <a href="https://wa.me/13054845668" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-    <script>
-        let productos = [];
-        let carrito = [];
-        let mostrarTodos = false;
-
-        async function cargarProductos() {
-            try {
-                const response = await fetch('productos.json');
-                productos = await response.json();
-            } catch (e) {
-                // Fallback si no hay JSON
-                productos = [
-                    { id: 1, nombre: "Combo Familiar Súper", precio: 95.00, img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600", descripcion: "Paquete completo esencial.", contenido: ["Arroz", "Frijoles", "Aceite"] },
-                    { id: 2, nombre: "Kit de Salud", precio: 45.00, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600", descripcion: "Medicamentos básicos.", contenido: ["Vitaminas", "Analgésicos"] },
-                    { id: 3, nombre: "Pack Cárnico", precio: 110.00, img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600", descripcion: "Carnes premium.", contenido: ["Pollo", "Res", "Cerdo"] }
-                ];
-            }
-            loadProducts();
-        }
-
-        function loadProducts() {
-            const container = document.getElementById('product-container');
-            const items = mostrarTodos ? productos : productos.slice(0, 3);
-            container.innerHTML = items.map(p => `
-                <div class="product-card">
-                    <img src="${p.img}" alt="${p.nombre}">
-                    <h3>${p.nombre}</h3>
-                    <span style="color:var(--secondary); font-weight:700; font-size:1.5rem; display:block; margin-bottom:15px">$${p.precio.toFixed(2)}</span>
-                    <div style="display: flex; gap: 10px; justify-content: center; padding: 0 10px;">
-                        <button class="btn-secondary" onclick="verDetalles(${p.id})">Detalles</button>
-                        <button class="btn-main" onclick="addToCart(${p.id})">Añadir</button>
-                    </div>
-                </div>
-            `).join('');
-            
-            const btnContainer = document.getElementById('toggle-btn-container');
-            if (productos.length > 3) {
-                btnContainer.style.display = 'block';
-                document.getElementById('toggle-products-btn').innerText = mostrarTodos ? 'Ver Menos' : 'Ver Más Productos';
-            }
-        }
-
-        function toggleProducts() { mostrarTodos = !mostrarTodos; loadProducts(); }
-
-        function addToCart(id) {
-            const p = productos.find(x => x.id === id);
-            carrito.push(p);
-            document.getElementById('cart-count').innerText = carrito.length;
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const itemsDiv = document.getElementById('cart-items');
-            itemsDiv.innerHTML = carrito.map((p, i) => `
-                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #444; padding-bottom:5px">
-                    <span>${p.nombre}</span>
-                    <span>$${p.precio.toFixed(2)} <i class="fas fa-trash" onclick="removeItem(${i})" style="cursor:pointer; color:red; margin-left:10px"></i></span>
-                </div>
-            `).join('');
-            const total = carrito.reduce((sum, p) => sum + p.precio, 0);
-            document.getElementById('cart-total').innerText = total.toFixed(2);
-        }
-
-        function removeItem(i) { carrito.splice(i, 1); document.getElementById('cart-count').innerText = carrito.length; updateCartUI(); }
-
-        function toggleCart() {
-            const m = document.getElementById('cart-modal');
-            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function verDetalles(id) {
-            const p = productos.find(x => x.id === id);
-            const body = document.getElementById('details-body');
-            body.innerHTML = `
-                <h2 style="color:white">${p.nombre}</h2>
-                <img src="${p.img}" style="width:100%; border-radius:15px; margin-bottom:15px">
-                <p style="color:#ccc">${p.descripcion}</p>
-                <ul style="color:#aaa">${p.contenido.map(c => `<li>${c}</li>`).join('')}</ul>
-                <button class="btn-main" style="width:100%" onclick="addToCart(${p.id}); document.getElementById('details-modal').style.display='none'">Añadir al Carrito</button>
-                <button onclick="document.getElementById('details-modal').style.display='none'" style="background:none; border:none; color:white; width:100%; margin-top:10px; cursor:pointer">Volver</button>
-            `;
-            document.getElementById('details-modal').style.display = 'flex';
-        }
-
-        function sendWhatsApp() {
-            if (carrito.length === 0) return alert("El carrito está vacío");
-            let msg = "Hola EnviaDirect, quiero pedir:\n" + carrito.map(p => `- ${p.nombre} ($${p.precio})`).join('\n');
-            window.open(`https://wa.me/13054845668?text=${encodeURIComponent(msg)}`);
-        }
-
-        // Slider automático
-        let currentSlide = 0;
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % 3;
-            document.getElementById('slider').style.transform = `translateX(-${currentSlide * 33.333}%)`;
-        }, 5000);
-
-        cargarProductos();
-    </script>
 </body>
 </html>
