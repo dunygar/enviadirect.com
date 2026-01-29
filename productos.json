@@ -55,24 +55,19 @@
   },
   {
     "id": 3,
-    "nombre": "Pack Cárnico Especial",
-    "precio": 110.00,
+    "nombre": "Bateria Lifepo4",
+    "precio": 650.00,
     "img": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
-    "descripcion": "Selección premium de carnes y embutidos de la más alta calidad. Perfecto para ocasiones especiales o para completar la despensa familiar.",
+    "descripcion": "Dumfume 12.8 V 300Ah Lifepo4 batería de litio 3840w, batería para Solar RV.",
     "especificaciones": [
-      "Peso total: 30 libras aproximadamente",
-      "Productos refrigerados durante el envío",
-      "Empaque térmico especializado",
-      "Garantía de frescura al 100%"
+      "Mayor densidad de energía y rendimiento estable: la batería DUMFUME 12.8V 300Ah LiFePO4 ofrece 3,84 kWh de energía, equivalente a tres baterías de 12V 100Ah. Garantizando una salida de energía estable, lo que ahorra tiempo y costos en el cableado y al mismo tiempo proporciona tiempos de ciclo más largos y una protección mejorada de la batería",
+      "Celdas Grado A para una protección confiable: Batería DUMFUME LiFePO4 equipada con un sistema de gestión de batería de 300 A, esta batería protege contra sobrecarga, sobredescarga y cortocircuitos.Proporciona potencia continua de hasta 3840 W, lo que garantiza longevidad y funcionamiento seguro para diversas aplicaciones.",
+      "Vida útil más larga y diseño liviano: batería de litio DUMFUME 12.8V 300Ah LiFePO4 Con un peso de solo 60 libras, esta batería LiFePO4 es un tercio del peso de las baterías de plomo-ácido tradicionales.Su vida útil de 10 años y más de 15000 ciclos profundos con 100% DOD lo convierten en una solución de energía confiable y portátil para aplicaciones tanto en interiores como en exteriores."
     ],
     "contenido": [
-      "10 lbs de pollo entero",
-      "5 lbs de carne de res",
-      "3 lbs de chorizo español",
-      "3 lbs de jamón enlatado",
-      "4 lbs de salchichas variadas",
-      "2 lbs de tocino ahumado",
-      "3 lbs de carne molida"
+      "Bateria",
+      "Manual",
+      "Tornillos"
     ]
   },
   {
