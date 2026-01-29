@@ -24,35 +24,33 @@
       "Restaurar la configuración predeterminada con un solo clic"
     ],
     "contenido": [
-      "5 lbs de arroz premium",
-      "3 lbs de frijoles negros",
-      "2 lbs de aceite vegetal",
-      "1 lb de café cubano",
-      "Pasta italiana (3 paquetes)",
-      "Salsa de tomate (4 unidades)",
-      "Productos de limpieza básicos"
+      "Inversor",
+      "Manual"
     ]
   },
   {
     "id": 2,
-    "nombre": "Kit de Salud Prioritario",
-    "precio": 45.00,
-    "img": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
-    "descripcion": "Medicamentos y productos esenciales para el cuidado de la salud. Enviamos con prioridad para garantizar que lleguen en perfectas condiciones.",
+    "nombre": "Inversor Hibrido Sumry 3.6kw",
+    "precio": 400.00,
+    "img": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
+    "descripcion": "Sumry 3.6kw inversor solar híbrido 110/120v 24v salida dual con MPPT 120A 60-450v 50/60hz inversor doméstico onda sinusoidal pura",
     "especificaciones": [
-      "Peso total: 8 libras aproximadamente",
-      "Envío prioritario con seguimiento",
-      "Empaque especial para medicamentos",
-      "Certificado de productos autorizados"
+      "inversor solar de onda sinusoidal pura (red de encendido/apagado)",
+      "Factor de potencia de salida 1.0",
+      "WIF1 y GPRS disponibles paralo y Androide",
+      "El inversor puede funcionar sin batería",
+      "Restauración con una sola tecla a la configuración de fábrica",
+      "Activación automática de la batería de litio incorporada",
+      "Tensión de salida CA 120 VCA",
+      "Carga solar incorporada de 120 AMPPT: máximo 4200 W (para 3,6 kW)",
+      "Rango de voltaje de entrada fotovoltaica alto (60 ~ 500 VCC)",
+      "Kit antipolvo incorporado para entornos hostiles",
+      "Diseño de carga de batería inteligente para optimizar la duración de la batería",
+      "Salida dual"
     ],
     "contenido": [
-      "Analgésicos (Paracetamol, Ibuprofeno)",
-      "Vitaminas multivitamínicas",
-      "Antibióticos básicos",
-      "Productos de primeros auxilios",
-      "Termómetro digital",
-      "Vendas y gasas",
-      "Alcohol y desinfectantes"
+      "Inversor",
+      "Manual"
     ]
   },
   {
