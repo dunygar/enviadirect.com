@@ -1,17 +1,18 @@
-[
+// Es recomendable guardar esto en un archivo separado llamado 'productos.js' o 'data.json'
+const PRODUCTOS_DATA = [
   {
-    "id": 1,
-    "nombre": "hibrido",
-    "precio": 95.00,
-    "img": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
-    "descripcion": "jfdhjasdhjasdfhjksdafhkjsadkhjsadkhjsdakjhdsajhkdasjhkasd",
-    "especificaciones": [
+    id: 1,
+    nombre: "Combo Híbrido Familiar",
+    precio: 95.00,
+    img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600",
+    descripcion: "Una combinación equilibrada de granos, aceites y productos de primera necesidad para el hogar.",
+    especificaciones: [
       "Peso total: 25 libras aproximadamente",
       "Tiempo de entrega: 7-10 días hábiles",
       "Incluye productos no perecederos",
       "Empaque seguro y certificado"
     ],
-    "contenido": [
+    contenido: [
       "5 lbs de arroz premium",
       "3 lbs de frijoles negros",
       "2 lbs de aceite vegetal",
@@ -22,18 +23,18 @@
     ]
   },
   {
-    "id": 2,
-    "nombre": "Kit de Salud Prioritario",
-    "precio": 45.00,
-    "img": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
-    "descripcion": "Medicamentos y productos esenciales para el cuidado de la salud. Enviamos con prioridad para garantizar que lleguen en perfectas condiciones.",
-    "especificaciones": [
+    id: 2,
+    nombre: "Kit de Salud Prioritario",
+    precio: 45.00,
+    img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
+    descripcion: "Medicamentos y productos esenciales para el cuidado de la salud con envío prioritario.",
+    especificaciones: [
       "Peso total: 8 libras aproximadamente",
       "Envío prioritario con seguimiento",
       "Empaque especial para medicamentos",
       "Certificado de productos autorizados"
     ],
-    "contenido": [
+    contenido: [
       "Analgésicos (Paracetamol, Ibuprofeno)",
       "Vitaminas multivitamínicas",
       "Antibióticos básicos",
@@ -44,18 +45,18 @@
     ]
   },
   {
-    "id": 3,
-    "nombre": "Pack Cárnico Especial",
-    "precio": 110.00,
-    "img": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
-    "descripcion": "Selección premium de carnes y embutidos de la más alta calidad. Perfecto para ocasiones especiales o para completar la despensa familiar.",
-    "especificaciones": [
+    id: 3,
+    nombre: "Pack Cárnico Especial",
+    precio: 110.00,
+    img: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600",
+    descripcion: "Selección premium de carnes y embutidos con garantía de cadena de frío.",
+    especificaciones: [
       "Peso total: 30 libras aproximadamente",
       "Productos refrigerados durante el envío",
       "Empaque térmico especializado",
       "Garantía de frescura al 100%"
     ],
-    "contenido": [
+    contenido: [
       "10 lbs de pollo entero",
       "5 lbs de carne de res",
       "3 lbs de chorizo español",
@@ -66,18 +67,18 @@
     ]
   },
   {
-    "id": 4,
-    "nombre": "Combo de Higiene Personal",
-    "precio": 65.00,
-    "img": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600",
-    "descripcion": "Productos de higiene y cuidado personal de marcas reconocidas para toda la familia. Todo lo necesario para el cuidado diario.",
-    "especificaciones": [
+    id: 4,
+    nombre: "Combo de Higiene Personal",
+    precio: 65.00,
+    img: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600",
+    descripcion: "Productos de aseo personal de marcas reconocidas para el cuidado diario familiar.",
+    especificaciones: [
       "Peso total: 15 libras aproximadamente",
       "Productos de marcas reconocidas",
       "Embalaje seguro anti-derrames",
       "Ideal para 2-3 meses de uso"
     ],
-    "contenido": [
+    contenido: [
       "Champú y acondicionador (3 unidades c/u)",
       "Jabón de baño (6 unidades)",
       "Pasta dental (4 tubos)",
@@ -89,18 +90,18 @@
     ]
   },
   {
-    "id": 5,
-    "nombre": "Pack de Alimentos Básicos",
-    "precio": 80.00,
-    "img": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600",
-    "descripcion": "Alimentos esenciales de despensa con larga duración. La base perfecta para la alimentación familiar durante varias semanas.",
-    "especificaciones": [
+    id: 5,
+    nombre: "Pack de Alimentos Básicos",
+    precio: 80.00,
+    img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600",
+    descripcion: "Suministros esenciales de larga duración, ideales para asegurar la despensa familiar.",
+    especificaciones: [
       "Peso total: 40 libras aproximadamente",
       "Productos no perecederos",
       "Fecha de vencimiento mínima: 12 meses",
       "Embalaje resistente"
     ],
-    "contenido": [
+    contenido: [
       "15 lbs de arroz blanco",
       "8 lbs de azúcar",
       "5 lbs de harina de trigo",
@@ -111,18 +112,18 @@
     ]
   },
   {
-    "id": 6,
-    "nombre": "Kit Infantil Completo",
-    "precio": 70.00,
-    "img": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600",
-    "descripcion": "Todo lo que los más pequeños necesitan: ropa, juguetes, productos de higiene y alimentos especiales. Diseñado con mucho amor.",
-    "especificaciones": [
+    id: 6,
+    nombre: "Kit Infantil Completo",
+    precio: 70.00,
+    img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600",
+    descripcion: "Cuidado integral para niños: incluye higiene, alimentación y material educativo.",
+    especificaciones: [
       "Peso total: 18 libras aproximadamente",
       "Productos para niños de 0-5 años",
       "Ropa tallas variadas disponibles",
       "Juguetes educativos incluidos"
     ],
-    "contenido": [
+    contenido: [
       "Ropa infantil (5 piezas)",
       "Pañales desechables (50 unidades)",
       "Toallitas húmedas (4 paquetes)",
@@ -133,4 +134,24 @@
       "Útiles escolares básicos"
     ]
   }
-]
+];
+
+// Ejemplo de cómo manejar los productos de forma dinámica:
+
+// 1. Función para agregar un producto
+const agregarProducto = (nuevoProducto) => {
+    PRODUCTOS_DATA.push(nuevoProducto);
+    console.log("Producto agregado con éxito");
+};
+
+// 2. Función para quitar un producto por ID
+const eliminarProducto = (id) => {
+    const indice = PRODUCTOS_DATA.findIndex(p => p.id === id);
+    if (indice !== -1) {
+        PRODUCTOS_DATA.splice(indice, 1);
+        console.log(`Producto con ID ${id} eliminado`);
+    }
+};
+
+// 3. Función para buscar un producto (útil para editar)
+const buscarProducto = (id) => PRODUCTOS_DATA.find(p => p.id === id);
